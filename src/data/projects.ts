@@ -19,7 +19,7 @@ export const projects: Project[] = [
     keyLearnings: ["State management", "RESTful API design"],
     githubLink: "https://github.com/msk-chaithanya-raj/nxt-trendz.git",
     demoLink: "https://kcnxttrendz.ccbp.tech",
-    image: "/assests/nxttrendz.png",
+    image: "/public/assets/nxttrendz.png",
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     ],
     githubLink: "https://github.com/msk-chaithanya-raj/fullstack-chat-app.git",
     demoLink: "https://fullstack-chat-app-axa7.onrender.com",
-    image: "/assests/chatty.png",
+    image: "/public/assets/chatty.png",
   },
   // Add more projects as needed
 ];
