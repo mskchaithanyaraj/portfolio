@@ -74,8 +74,11 @@ const About = () => {
                 </p>
                 <p className="text-lg text-muted-foreground">
                   Beyond coding, I enjoy watching anime and exploring new
-                  technologies. I believe in using my skills to help others and
-                  make their lives easier and more fulfilling.
+                  technologies.{" "}
+                  <span className="italic font-semibold">
+                    I believe in using my skills to help others and make their
+                    lives easier and more fulfilling.
+                  </span>
                 </p>
               </div>
             </div>
