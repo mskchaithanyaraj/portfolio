@@ -56,7 +56,7 @@ const CertificationCard = ({
         <Card>
           <CardContent className="p-0">
             <img
-              src={certification.imageUrl || "/placeholder.svg"}
+              src={certification.imageUrl || "/placeholder.png"}
               alt={certification.name}
               className="w-full h-48 object-cover rounded-t-lg cursor-pointer"
             />
@@ -89,7 +89,7 @@ const CertificationCard = ({
           exit={{ opacity: 0 }}
         >
           <motion.img
-            src={certification.imageUrl || "/placeholder.svg"}
+            src={certification.imageUrl || "/placeholder.png"}
             alt={certification.name}
             className="max-w-full max-h-full rounded-lg cursor-pointer"
             initial={{ scale: 0.8 }}

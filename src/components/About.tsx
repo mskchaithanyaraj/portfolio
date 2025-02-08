@@ -50,7 +50,7 @@ const About = () => {
                 )}
                 {/* Profile Image */}
                 <img
-                  src="/src/assets/profile.jpg"
+                  src="/assets/profile.jpg"
                   alt="Developer"
                   className="rounded-full shadow-lg h-48 w-48 object-cover z-10"
                 />

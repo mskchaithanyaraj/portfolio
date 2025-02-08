@@ -27,7 +27,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <Card>
         <CardContent className="p-0">
           <img
-            src={project.image || "/placeholder.svg"}
+            src={project.image || "/placeholder.png"}
             alt={project.name}
             className="w-full h-48 object-cover rounded-t-lg"
           />
