@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Typewriter } from "react-simple-typewriter";
 import "../styles/globals.css";
+import "@fontsource/audiowide";
+import "@fontsource/press-start-2p";
 
 const About = () => {
   const { theme } = useTheme();
@@ -19,7 +21,7 @@ const About = () => {
           About Me
         </h2>
         <Card>
-          <CardContent className="p-20">
+          <CardContent className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
               <div className="flex justify-center relative">
                 {/* Gradient Dotted Circle for Dark Theme */}
@@ -57,26 +59,26 @@ const About = () => {
                 />
               </div>
 
-              <div className="text-center space-y-4">
-                <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text">
+              <div className="container mx-auto px-4 py-12 text-center space-y-8">
+                <h1 className="font-press text-2xl md:text-2xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text tracking-wide">
                   <Typewriter
                     words={["Hi, I'm Sri Krishna Chaithanya Raj Masimukku"]}
                     cursor
                     cursorStyle="❤"
-                    typeSpeed={90} // Smooth typing
+                    typeSpeed={90}
                   />
                 </h1>
 
-                <p className="text-lg bg-gradient-to-r from-blue-500 to-green-400 text-transparent bg-clip-text">
-                  My journey began in{" "}
-                  <span className="text-2xl font-semibold ">2022</span>, and I
-                  continue learning to stay at the forefront of web development
-                  trends.
-                </p>
+                <ul className="list-disc text-md bg-gradient-to-r from-blue-500 to-green-400 text-transparent bg-clip-text text-left mx-auto w-fit space-y-4 pl-5 font-audiowide">
+                  <li>
+                    I believe in using my skills to help others and make their
+                    lives easier and more fulfilling.
+                  </li>
+                </ul>
 
                 <a
                   href="#projects"
-                  className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 py-2 rounded-2xl hover:scale-105 transition-transform shadow-md inline-block"
+                  className="inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-lg"
                 >
                   See My Work
                 </a>
