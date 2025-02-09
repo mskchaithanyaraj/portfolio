@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTheme } from "@/contexts/ThemeContext";
+import { Typewriter } from "react-simple-typewriter";
 import "../styles/globals.css";
 
 const About = () => {
@@ -18,7 +19,7 @@ const About = () => {
           About Me
         </h2>
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-20">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
               <div className="flex justify-center relative">
                 {/* Gradient Dotted Circle for Dark Theme */}
@@ -56,30 +57,29 @@ const About = () => {
                 />
               </div>
 
-              <div>
-                <p className="text-lg text-muted-foreground mb-4">
-                  Hi, I'm{" "}
-                  <span className="font-semibold px-1">
-                    Sri Krishna Chaithanya Raj Masimukku
-                  </span>
-                  , a MERN stack developer passionate about creating scalable
-                  web applications. I have worked on diverse projects, honing my
-                  skills in MongoDB, Express.js, React, and Node.js.
-                </p>
-                <p className="text-lg text-muted-foreground mb-4">
+              <div className="text-center space-y-4">
+                <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text">
+                  <Typewriter
+                    words={["Hi, I'm Sri Krishna Chaithanya Raj Masimukku"]}
+                    cursor
+                    cursorStyle="❤"
+                    typeSpeed={90} // Smooth typing
+                  />
+                </h1>
+
+                <p className="text-lg bg-gradient-to-r from-blue-500 to-green-400 text-transparent bg-clip-text">
                   My journey began in{" "}
-                  <span className="font-semibold px-1">2022</span>, and I
+                  <span className="text-2xl font-semibold ">2022</span>, and I
                   continue learning to stay at the forefront of web development
                   trends.
                 </p>
-                <p className="text-lg text-muted-foreground">
-                  Beyond coding, I enjoy watching anime and exploring new
-                  technologies.{" "}
-                  <span className="italic font-semibold">
-                    I believe in using my skills to help others and make their
-                    lives easier and more fulfilling.
-                  </span>
-                </p>
+
+                <a
+                  href="#projects"
+                  className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 py-2 rounded-2xl hover:scale-105 transition-transform shadow-md inline-block"
+                >
+                  See My Work
+                </a>
               </div>
             </div>
           </CardContent>
