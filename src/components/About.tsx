@@ -76,12 +76,29 @@ const About = () => {
                   </li>
                 </ul>
 
-                <a
-                  href="#projects"
-                  className="inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-lg"
-                >
-                  See My Work
-                </a>
+                <div className="flex flex-wrap gap-3 items-center justify-center">
+                  <a
+                    href="#projects"
+                    className="inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-5 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-sm"
+                  >
+                    See My Work
+                  </a>
+                  <a
+                    href="/assets/resume.pdf" // Ensure the file is in the public folder
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-5 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-sm"
+                  >
+                    View Resume
+                  </a>
+                  <a
+                    href="/assets/resume.pdf" // Replace with your actual resume file path
+                    download="Sri_Krishna_Resume.pdf" // Set the download filename
+                    className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white px-5 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-sm"
+                  >
+                    Download Resume
+                  </a>
+                </div>
               </div>
             </div>
           </CardContent>
