@@ -3,8 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Typewriter } from "react-simple-typewriter";
 import "../styles/globals.css";
-import "@fontsource/audiowide";
-import "@fontsource/press-start-2p";
 
 const About = () => {
   const { theme } = useTheme();
@@ -69,7 +67,7 @@ const About = () => {
                   />
                 </h1>
 
-                <ul className="list-disc text-md bg-gradient-to-r from-blue-500 to-green-400 text-transparent bg-clip-text text-left mx-auto w-fit space-y-4 pl-5 font-audiowide">
+                <ul className="list-disc text-md bg-gradient-to-r from-blue-500 to-green-400 text-transparent bg-clip-text text-left mx-auto w-fit space-y-4 pl-5">
                   <li>
                     I believe in using my skills to help others and make their
                     lives easier and more fulfilling.
