@@ -44,5 +44,20 @@ export const projects: Project[] = [
     demoLink: "https://fullstack-chat-app-axa7.onrender.com",
     image: "/assets/chatty.png",
   },
+  {
+    id: 3,
+    name: "HealU: Personalized Nutrition & Meal Planning Platform",
+    description:
+      "Built a web app for personalized meal planning and BMI calculation.",
+    techStack: ["React JS", "Node JS", "MongoDB", "Express JS", "JWT"],
+    keyLearnings: [
+      "AI chatbot integration",
+      "User authentication and authorization",
+      " UI/UX enhancements",
+    ],
+    githubLink: "https://github.com/msk-chaithanya-raj/HealU.git",
+    demoLink: "https://healuonline.netlify.app/",
+    image: "/assets/healu.png",
+  },
   // Add more projects as needed
 ];
