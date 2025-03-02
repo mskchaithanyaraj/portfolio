@@ -15,7 +15,21 @@ const Certifications = () => {
     "Podcasts",
   ];
 
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [selectedCategory, setSelectedCategory] = useState(categories[2]);
+
+  // Helper function to parse date strings
+  const parseDate = (dateString: string | undefined): Date => {
+    return dateString ? new Date(dateString) : new Date(0);
+  };
+
+  // Sort certifications by date in descending order
+  const sortedCertifications = (category: string) => {
+    return certifications
+      .filter((cert) => cert.category === category)
+      .sort(
+        (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime()
+      );
+  };
 
   return (
     <section id="certifications" className="py-20 bg-muted">
@@ -47,15 +61,10 @@ const Certifications = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              {selectedCategory}
-            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {certifications
-                .filter((cert) => cert.category === selectedCategory)
-                .map((cert) => (
-                  <CertificationCard key={cert.id} certification={cert} />
-                ))}
+              {sortedCertifications(selectedCategory).map((cert) => (
+                <CertificationCard key={cert.id} certification={cert} />
+              ))}
             </div>
           </motion.div>
         </AnimatePresence>
@@ -86,7 +95,8 @@ const CertificationCard = ({
               <img
                 src={
                   certification.imageUrl ||
-                  "/placeholder.svg?height=192&width=384"
+                  "/placeholder.svg?height=192&width=384" ||
+                  "/placeholder.svg"
                 }
                 alt={certification.name}
                 className="w-full h-full object-cover rounded-t-lg cursor-pointer"
@@ -132,7 +142,8 @@ const CertificationCard = ({
             <img
               src={
                 certification.imageUrl ||
-                "/placeholder.svg?height=600&width=800"
+                "/placeholder.svg?height=600&width=800" ||
+                "/placeholder.svg"
               }
               alt={certification.name}
               className="w-full h-full object-contain"
