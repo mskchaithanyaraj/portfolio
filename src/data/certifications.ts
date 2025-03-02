@@ -25,7 +25,7 @@ export const certifications: Certification[] = [
   {
     id: uuidv4(),
     name: " NxtCode 7 Under 7 Challenge",
-    imageUrl: "../../public/assets/certifications/nxtcode.jpg",
+    imageUrl: "assets/certifications/nxtcode.jpg",
     category: "Intercollege Competitions",
     issuer: "Nxtwave",
     date: "October 1, 2024",
@@ -129,14 +129,14 @@ export const certifications: Certification[] = [
   {
     id: uuidv4(),
     name: "How to become Data Scientist",
-    imageUrl: "../../public/assets/certifications/podcasts/howtobecomeds.jpg",
+    imageUrl: "assets/certifications/podcasts/howtobecomeds.jpg",
     category: "Podcasts",
     issuer: "NxtWave",
   },
   {
     id: uuidv4(),
     name: "Skills You Can't Ignore to get Exciting AI Jobs",
-    imageUrl: "../../public/assets/certifications/podcasts/aijobs.jpg",
+    imageUrl: "assets/certifications/podcasts/aijobs.jpg",
     category: "Podcasts",
     issuer: "NxtWave",
   },
