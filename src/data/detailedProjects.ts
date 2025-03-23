@@ -21,7 +21,7 @@ export const detailedProjects: DetailedProject[] = [
     name: "COVID-19 Page",
     description:
       "A responsive informational page about COVID-19, marking the beginning of my development journey, featuring layout development with symptoms and prevention sections.",
-    imageUrl: "../../public/assets/banners/covid19-page.png",
+    imageUrl: "/assets/banners/covid19-page.png",
     date: {
       month: "November",
       year: 2022,
@@ -51,7 +51,7 @@ export const detailedProjects: DetailedProject[] = [
     name: "Flats Page",
     description:
       "A real estate listing page showcasing 3BHK flats with detailed descriptions and booking functionality.",
-    imageUrl: "../../public/assets/banners/flats-page.png",
+    imageUrl: "/assets/banners/flats-page.png",
     date: {
       month: "December",
       year: 2022,
@@ -81,7 +81,7 @@ export const detailedProjects: DetailedProject[] = [
     name: "Navbar & Banner Section",
     description:
       "A responsive navbar and banner section designed for both desktop and mobile views using Bootstrap.",
-    imageUrl: "../../public/assets/banners/navbar-banner.png",
+    imageUrl: "/assets/banners/navbar-banner.png",
     date: {
       month: "February",
       year: 2023,
@@ -111,7 +111,7 @@ export const detailedProjects: DetailedProject[] = [
     name: "Todos Application",
     description:
       "A persistent todo application with CRUD operations to manage tasks, styled with Bootstrap and enhanced with local storage.",
-    imageUrl: "../../public/assets/banners/todolist.png",
+    imageUrl: "/assets/banners/todolist.png",
     date: {
       month: "October",
       year: 2023,
@@ -140,7 +140,7 @@ export const detailedProjects: DetailedProject[] = [
     name: "Add User Forms",
     description:
       "A form application with validation for adding users, including email format checks and API integration.",
-    imageUrl: "../../public/assets/banners/forms-project.png",
+    imageUrl: "/assets/banners/forms-project.png",
     date: {
       month: "June",
       year: 2023,
@@ -170,7 +170,7 @@ export const detailedProjects: DetailedProject[] = [
     name: "Github Popular Repos",
     description:
       "A web app displaying popular GitHub repositories with language filtering, built with React components.",
-    imageUrl: "../../public/assets/banners/popularrepo.png",
+    imageUrl: "/assets/banners/popularrepo.png",
     date: {
       month: "September",
       year: 2023,
@@ -199,7 +199,7 @@ export const detailedProjects: DetailedProject[] = [
     name: "CoWIN Dashboard",
     description:
       "A dashboard visualizing COVID-19 vaccination data with charts, using Recharts for data representation.",
-    imageUrl: "../../public/assets/banners/cowin.png",
+    imageUrl: "/assets/banners/cowin.png",
     date: {
       month: "January",
       year: 2024,
