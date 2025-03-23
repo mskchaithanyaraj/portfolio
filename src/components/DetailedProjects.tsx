@@ -52,10 +52,6 @@ const DetailedProjects = () => {
           Back to Portfolio
         </Link>
 
-        <h1 className="text-4xl font-bold gradient-text mb-12 text-center">
-          Project Timeline
-        </h1>
-
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20"></div>
@@ -93,13 +89,13 @@ const DetailedProjects = () => {
                 </div>
 
                 <motion.div
-                  className="glass p-6 rounded-xl shadow-lg w-full ml-8 md:ml-0"
+                  className="glass p-6 rounded-xl shadow-lg w-full ml-2 md:ml-0"
                   initial={{ x: -20 }}
                   animate={{ x: 0 }}
                   transition={{ duration: 0.5 }}
                   whileHover={{ y: -5 }}
                 >
-                  <div className="mb-4">
+                  <div className="mb-4 mt-4 md:mt-0">
                     <h3 className="text-2xl font-bold gradient-text mt-1">
                       {project.name}
                     </h3>
