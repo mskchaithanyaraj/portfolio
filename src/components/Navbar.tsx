@@ -3,36 +3,56 @@ import { motion } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
   const navItems = ["About", "Skills", "Certifications", "Projects", "Contact"];
+  const isHomePage = location.pathname === "/";
 
   return (
     <nav className="sticky top-0 z-50 bg-background border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a
-              href="#"
-              className="text-2xl sm:text-md  font-bold text-foreground"
+            <Link
+              to="/"
+              className="text-2xl sm:text-md font-bold text-foreground"
             >
               My Tech Realm
-            </a>
+            </Link>
           </div>
           <div className="hidden md:block">
             <div className="flex items-baseline space-x-4">
-              {navItems.map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+              {isHomePage ? (
+                <>
+                  {navItems.map((item) => (
+                    <a
+                      key={item}
+                      href={`#${item.toLowerCase()}`}
+                      className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium hover:text-blue-400"
+                    >
+                      {item}
+                    </a>
+                  ))}
+                  <Link
+                    to="/detailed-projects"
+                    className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium hover:text-blue-400"
+                  >
+                    More Work
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  to="/"
                   className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium hover:text-blue-400"
                 >
-                  {item}
-                </a>
-              ))}
+                  Back to Home
+                </Link>
+              )}
             </div>
           </div>
           <div className="flex items-center">
@@ -95,16 +115,35 @@ const Navbar = () => {
         transition={{ duration: 0.3 }}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+          {isHomePage ? (
+            <>
+              {navItems.map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+              <Link
+                to="/detailed-projects"
+                className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Timeline
+              </Link>
+            </>
+          ) : (
+            <Link
+              to="/"
               className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
               onClick={() => setIsOpen(false)}
             >
-              {item}
-            </a>
-          ))}
+              Back to Home
+            </Link>
+          )}
         </div>
       </motion.div>
     </nav>

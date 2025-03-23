@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
-import { projects, Project } from "../data/projects";
+import { projects, type Project } from "../data/projects";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-extrabold text-foreground mb-8">
           My Projects
@@ -16,6 +18,15 @@ const Projects = () => {
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
+
+        <div className="mt-12 text-center">
+          <Button asChild size="lg" className="group">
+            <Link to="/detailed-projects">
+              View All Projects
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
+        </div>
       </div>
     </section>
   );
@@ -23,15 +34,19 @@ const Projects = () => {
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 1.045 }}>
-      <Card>
-        <CardContent className="p-0">
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 1.045 }}
+      className="h-full"
+    >
+      <Card className="flex flex-col h-full">
+        <CardContent className="p-0 flex flex-col h-full">
           <img
             src={project.image || "/placeholder.png"}
             alt={project.name}
             className="w-full h-48 object-cover rounded-t-lg"
           />
-          <div className="p-6">
+          <div className="p-6 flex flex-col flex-grow">
             <h3 className="text-xl font-semibold text-foreground mb-2">
               {project.name}
             </h3>
@@ -48,7 +63,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 ))}
               </div>
             </div>
-            <div className="mb-4">
+            <div className="mb-4 flex-grow">
               <h4 className="text-lg font-semibold text-foreground mb-2">
                 Key Learnings:
               </h4>
@@ -58,7 +73,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 ))}
               </ul>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between mt-auto">
               <Button asChild>
                 <a
                   href={project.githubLink}
