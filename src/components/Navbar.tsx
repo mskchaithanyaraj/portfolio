@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
@@ -14,7 +12,10 @@ const Navbar = () => {
   const [activeItem, setActiveItem] = useState("");
   const [hoveredItem, setHoveredItem] = useState(null);
 
-  const navItems = ["About", "Skills", "Projects", "Certifications", "Contact"];
+  const navItems = useMemo(
+    () => ["About", "Skills", "Projects", "Certifications", "Contact"],
+    []
+  );
   const isHomePage = location.pathname === "/";
 
   // Set active item based on URL hash and scroll position
@@ -45,7 +46,8 @@ const Navbar = () => {
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
-        if (section.element.offsetTop <= scrollPosition) {
+        const el = section.element;
+        if (el && el.offsetTop <= scrollPosition) {
           setActiveItem(section.id);
           break;
         }
