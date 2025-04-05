@@ -10,7 +10,7 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const [activeItem, setActiveItem] = useState("");
-  const [hoveredItem, setHoveredItem] = useState(null);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const navItems = useMemo(
     () => ["About", "Skills", "Projects", "Certifications", "Contact"],
@@ -72,7 +72,7 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  const handleNavItemClick = (item) => {
+  const handleNavItemClick = (item: string) => {
     setActiveItem(item.toLowerCase());
     setIsOpen(false);
   };
@@ -102,7 +102,7 @@ const Navbar = () => {
             <div className="flex items-baseline space-x-6">
               {isHomePage ? (
                 <>
-                  {navItems.map((item) => (
+                  {navItems.map((item: string) => (
                     <a
                       key={item}
                       href={`#${item.toLowerCase()}`}
