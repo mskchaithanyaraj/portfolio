@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { detailedProjects } from "../data/detailedProjects";
 import {
@@ -14,6 +14,10 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const DetailedProjects = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [expandedProjects, setExpandedProjects] = useState<
     Record<string, boolean>
   >({});
