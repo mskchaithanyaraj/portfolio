@@ -240,7 +240,7 @@ const Navbar = () => {
         }}
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
       >
-        <div className="flex-1 flex flex-col items-center justify-center px-2 pt-16 pb-3 space-y-8">
+        <div className="flex-1 flex flex-col items-center justify-center px-2 pt-1 pb-3 space-y-8">
           {isHomePage ? (
             <>
               {navItems.map((item, index) => (
