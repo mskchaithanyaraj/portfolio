@@ -43,7 +43,7 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/portfolio">
       <ThemeProvider>
         {isLoading ? (
           <motion.div
