@@ -19,7 +19,7 @@ export const projects: Project[] = [
     keyLearnings: ["State management", "RESTful API design"],
     githubLink: "https://github.com/msk-chaithanya-raj/nxt-trendz.git",
     demoLink: "https://kcnxttrendz.ccbp.tech",
-    image: "assets/nxttrendz.png",
+    image: "/assets/nxttrendz.png",
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     ],
     githubLink: "https://github.com/msk-chaithanya-raj/fullstack-chat-app.git",
     demoLink: "https://fullstack-chat-app-axa7.onrender.com",
-    image: "assets/chatty.png",
+    image: "/assets/chatty.png",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     ],
     githubLink: "https://github.com/msk-chaithanya-raj/HealU.git",
     demoLink: "https://healuonline.netlify.app/",
-    image: "assets/healu.png",
+    image: "/assets/healu.png",
   },
   // Add more projects as needed
 ];

@@ -42,7 +42,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <Card className="flex flex-col h-full">
         <CardContent className="p-0 flex flex-col h-full">
           <img
-            src={project.image || "placeholder.png"}
+            src={project.image || "/placeholder.png"}
             alt={project.name}
             className="w-full h-48 object-cover rounded-t-lg"
           />

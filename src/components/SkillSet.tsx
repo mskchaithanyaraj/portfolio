@@ -26,7 +26,7 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
       <Card>
         <CardContent className="p-4 flex flex-col items-center">
           <img
-            src={skill.logo || "placeholder.png"}
+            src={skill.logo || "/placeholder.png"}
             alt={skill.name}
             className="w-16 h-16 mb-4"
           />
