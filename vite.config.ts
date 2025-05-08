@@ -9,5 +9,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/portfolio/", // github repository name for gh pages
+  base: "/portfolio",
 });
