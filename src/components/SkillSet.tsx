@@ -5,8 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { useTheme } from "@/contexts/ThemeContext";
 
 const SkillSet = () => {
-  const { theme } = useTheme();
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

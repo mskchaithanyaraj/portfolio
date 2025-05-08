@@ -15,7 +15,6 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
 
 const Experience = () => {
-  const { theme } = useTheme();
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = experiences.length;

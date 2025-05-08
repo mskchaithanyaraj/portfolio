@@ -10,7 +10,7 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const [activeItem, setActiveItem] = useState("");
-  const [hoveredItem, setHoveredItem] = useState(null);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const navItems = useMemo(
     () => [
@@ -79,7 +79,7 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  const handleNavItemClick = (item) => {
+  const handleNavItemClick = (item: string) => {
     setActiveItem(item.toLowerCase());
     setIsOpen(false);
   };

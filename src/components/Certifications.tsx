@@ -1,11 +1,10 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { certifications, type Certification } from "../data/certifications";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X, Maximize2 } from "lucide-react";
-import { useTheme } from "@/contexts/ThemeContext";
 
 const ITEMS_PER_PAGE = 4;
 
@@ -20,7 +19,6 @@ const Certifications = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[2]);
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const { theme } = useTheme();
 
   // Helper function to parse date strings
   const parseDate = (dateString: string | undefined): Date => {
