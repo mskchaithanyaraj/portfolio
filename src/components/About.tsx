@@ -2,102 +2,175 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Typewriter } from "react-simple-typewriter";
-import "../styles/globals.css";
+import {
+  Download,
+  ExternalLink,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
   const { theme } = useTheme();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <motion.section
       id="about"
-      className="py-20 bg-muted"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      className="min-h-screen py-20 relative overflow-hidden flex items-center"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-foreground mb-8">
-          About Me
-        </h2>
-        <Card>
-          <CardContent className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-              <div className="flex justify-center relative">
-                {/* Gradient Dotted Circle for Dark Theme */}
-                {theme === "dark" && (
-                  <div
-                    className="absolute top-[-8px] h-52 w-52 rounded-full animate-spin-slow"
-                    style={{
-                      background:
-                        "conic-gradient(from 180deg, #1e3a8a, #3b82f6, #2563eb, #1e3a8a)",
-                      WebkitMask:
-                        "radial-gradient(closest-side, transparent 80%, black 100%)",
-                      mask: "radial-gradient(closest-side, transparent 80%, black 100%)",
-                    }}
-                  ></div>
-                )}
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-24 -right-24 w-[600px] h-[600px] rounded-full opacity-20 bg-gradient-to-br from-primary to-purple-500 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-[600px] h-[600px] rounded-full opacity-20 bg-gradient-to-tr from-primary to-blue-500 blur-3xl" />
+      </div>
 
-                {/* Ocean Blue Gradient Dotted Circle for Light Theme */}
-                {theme === "light" && (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <Card className="border-none shadow-2xl bg-card/60 backdrop-blur-sm">
+          <CardContent className="p-8 md:p-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+              <motion.div
+                className="flex justify-center relative order-2 md:order-1"
+                variants={itemVariants}
+              >
+                {/* Animated profile image with rotating gradient border */}
+                <div className="relative group scale-110">
+                  {/* Rotating gradient border */}
                   <div
-                    className="absolute top-[-8px] h-52 w-52 rounded-full animate-spin-slow"
-                    style={{
-                      background:
-                        "conic-gradient(from 180deg, #00bfff, #87cefa, #1e90ff, #00bfff)",
-                      WebkitMask:
-                        "radial-gradient(closest-side, transparent 80%, black 100%)",
-                      mask: "radial-gradient(closest-side, transparent 80%, black 100%)",
-                    }}
-                  ></div>
-                )}
-                {/* Profile Image */}
-                <img
-                  src="assets/profile.jpg"
-                  alt="Developer"
-                  className="rounded-full shadow-lg h-48 w-48 object-cover z-10"
-                />
-              </div>
+                    className={`absolute inset-0 rounded-full p-1 ${
+                      theme === "dark"
+                        ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+                        : "bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400"
+                    } animate-spin-slow blur-sm opacity-80`}
+                  />
 
-              <div className="container mx-auto px-4 py-12 text-center space-y-8">
-                <h1 className="font-press text-2xl md:text-2xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text tracking-wide">
+                  {/* Profile image */}
+                  <div className="relative rounded-full p-1 bg-gradient-to-r from-primary via-purple-500 to-pink-500 group-hover:from-pink-500 group-hover:via-purple-500 group-hover:to-primary transition-all duration-500">
+                    <div className="rounded-full p-1 bg-background">
+                      <img
+                        src="assets/profile.jpg"
+                        alt="Sri Krishna Chaithanya Raj"
+                        className="rounded-full h-64 w-64 object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Social media links that appear on hover */}
+                  <div className="absolute inset-0 rounded-full flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50">
+                    <a
+                      href="https://github.com/mskchaithanyaraj"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white text-black p-3 rounded-full hover:scale-110 transition-transform"
+                    >
+                      <Github size={24} />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/mskchaithanyaraj/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white text-[#0077b5] p-3 rounded-full hover:scale-110 transition-transform"
+                    >
+                      <Linkedin size={24} />
+                    </a>
+                    <a
+                      href="https://x.com/mskchaithanya"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white text-black p-3 rounded-full hover:scale-110 transition-transform"
+                    >
+                      <Twitter size={24} />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="space-y-8 order-2 md:order-2"
+                variants={itemVariants}
+              >
+                <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl bg-gradient-to-r from-primary via-purple-500 to-pink-500 text-transparent bg-clip-text leading-tight">
                   <Typewriter
-                    words={["Hi, I'm Sri Krishna Chaithanya Raj Masimukku"]}
+                    words={["Hi, I'm Chaithu  :)"]}
                     cursor
                     cursorStyle="❤"
                     typeSpeed={90}
                   />
                 </h1>
 
-                <ul className="list-disc text-md bg-gradient-to-r from-blue-500 to-green-400 text-transparent bg-clip-text text-left mx-auto w-fit space-y-4 pl-5">
-                  <li>
-                    I believe in using my skills to help others and make their
-                    lives easier and more fulfilling.
-                  </li>
-                </ul>
+                <p className="text-foreground/80 leading-relaxed text-lg">
+                  Frontend developer specializing in creating beautiful,
+                  responsive web experiences. Passionate about crafting clean
+                  code and user-centered designs that combine aesthetics with
+                  functionality.
+                </p>
 
-                <div className="flex flex-wrap gap-3 items-center justify-center">
-                  <a
-                    href="#projects"
-                    className="inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-5 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-sm"
+                <div className="flex flex-wrap gap-4 pt-4">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-gradient-to-r from-primary/40 to-purple-600 hover:from-primary/90 hover:to-purple-600/50 text-white font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 dark:text-white dark:border-primary/40"
                   >
-                    See My Work
-                  </a>
-                  <a
-                    href="assets/resume.pdf" // Ensure the file is in the public folder
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-5 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-sm"
+                    <a href="#projects">See My Work</a>
+                  </Button>
+
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="border-primary text-primary hover:bg-primary/10 group"
                   >
-                    View Resume
-                  </a>
-                  <a
-                    href="assets/resume.pdf" // Replace with your actual resume file path
-                    download="Sri_Krishna_Resume.pdf" // Set the download filename
-                    className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white px-5 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-sm"
+                    <a
+                      href="assets/resume.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink
+                        size={20}
+                        className="mr-2 group-hover:scale-110 transition-transform"
+                      />
+                      View Resume
+                    </a>
+                  </Button>
+
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="border-green-500 text-green-500 hover:bg-green-500/10 group"
                   >
-                    Download Resume
-                  </a>
+                    <a
+                      href="assets/resume.pdf"
+                      download="Sri_Krishna_Resume.pdf"
+                    >
+                      <Download
+                        size={20}
+                        className="mr-2 group-hover:scale-110 transition-transform"
+                      />
+                      Download Resume
+                    </a>
+                  </Button>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </CardContent>
         </Card>

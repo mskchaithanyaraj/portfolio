@@ -12,6 +12,7 @@ import DetailedProjects from "./components/DetailedProjects";
 import { Toaster } from "react-hot-toast";
 import Loader from "./components/Loader"; // Import the Loader component
 import { useState, useEffect } from "react";
+import Experience from "./components/Experience";
 
 const HomePage = () => (
   <motion.div
@@ -23,6 +24,7 @@ const HomePage = () => (
     <Navbar />
     <About />
     <SkillSet />
+    <Experience />
     <Projects />
     <Certifications />
     <Contact />

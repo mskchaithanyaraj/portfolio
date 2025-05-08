@@ -10,10 +10,17 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const [activeItem, setActiveItem] = useState("");
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [hoveredItem, setHoveredItem] = useState(null);
 
   const navItems = useMemo(
-    () => ["About", "Skills", "Projects", "Certifications", "Contact"],
+    () => [
+      "About",
+      "Skills",
+      "Experience",
+      "Projects",
+      "Certifications",
+      "Contact",
+    ],
     []
   );
   const isHomePage = location.pathname === "/";
@@ -72,24 +79,26 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  const handleNavItemClick = (item: string) => {
+  const handleNavItemClick = (item) => {
     setActiveItem(item.toLowerCase());
     setIsOpen(false);
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-background border-b backdrop-blur-sm bg-opacity-80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1">
+    <nav className="sticky top-0 z-50 bg-background/80 border-b border-border/40 backdrop-blur-md shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Link
               to="/"
-              className="text-2xl sm:text-md font-bold text-foreground relative group"
+              className="text-xl sm:text-2xl font-bold relative group"
             >
-              <span className="relative z-10">My Tech Realm</span>
+              <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 text-transparent bg-clip-text">
+                My Tech Realm
+              </span>
               <motion.div
-                className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-300"
+                className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-primary via-purple-500 to-pink-500"
                 initial={{ width: 0 }}
                 whileHover={{ width: "100%" }}
                 transition={{ duration: 0.3 }}
@@ -102,11 +111,11 @@ const Navbar = () => {
             <div className="flex items-baseline space-x-6">
               {isHomePage ? (
                 <>
-                  {navItems.map((item: string) => (
+                  {navItems.map((item) => (
                     <a
                       key={item}
                       href={`#${item.toLowerCase()}`}
-                      className="text-foreground px-3 py-[0.5] text-md font-medium relative group"
+                      className="text-foreground px-3 py-1 text-sm font-medium relative group"
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleNavItemClick(item)}
@@ -114,7 +123,7 @@ const Navbar = () => {
                       {item}
                       <div className="absolute -bottom-1 left-0 w-full h-[2px] overflow-hidden">
                         <motion.div
-                          className="h-full w-full bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-300"
+                          className="h-full w-full bg-gradient-to-r from-primary via-purple-500 to-pink-500"
                           initial={{ x: "-100%" }}
                           animate={{
                             x:
@@ -141,7 +150,7 @@ const Navbar = () => {
                     More Work
                     <div className="absolute -bottom-1 left-0 w-full h-[2px] overflow-hidden">
                       <motion.div
-                        className="h-full w-full bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-300"
+                        className="h-full w-full bg-gradient-to-r from-primary via-purple-500 to-pink-500"
                         initial={{ x: "-100%" }}
                         animate={{
                           x: hoveredItem === "more-work" ? 0 : "-100%",
@@ -154,17 +163,17 @@ const Navbar = () => {
               ) : (
                 <Link
                   to="/"
-                  className="text-foreground pr-[7.5rem] py-2 text-md font-medium relative group"
+                  className="text-foreground px-3 py-2 text-sm font-medium relative group"
                   onMouseEnter={() => setHoveredItem("back")}
                   onMouseLeave={() => setHoveredItem(null)}
                 >
                   Back to Home
-                  <div className="absolute -bottom-1 left-0 w-52 h-[2px] overflow-hidden">
+                  <div className="absolute -bottom-1 left-0 w-full h-[2px] overflow-hidden">
                     <motion.div
-                      className="h-full w-full bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-300"
-                      initial={{ x: "-50%" }}
+                      className="h-full w-full bg-gradient-to-r from-primary via-purple-500 to-pink-500"
+                      initial={{ x: "-100%" }}
                       animate={{
-                        x: hoveredItem === "back" ? "-50%" : "-100%",
+                        x: hoveredItem === "back" ? 0 : "-100%",
                       }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     />
@@ -176,11 +185,21 @@ const Navbar = () => {
 
           {/* Theme Toggle and Mobile Menu Button */}
           <div className="flex items-center">
-            <Button variant="ghost" size="icon" onClick={toggleTheme}>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="rounded-full hover:bg-foreground/10 dark:ring-1 dark:ring-purple-500/30"
+              aria-label={
+                theme === "light"
+                  ? "Switch to dark mode"
+                  : "Switch to light mode"
+              }
+            >
               {theme === "light" ? (
-                <MoonIcon className="h-[1.2rem] w-[1.2rem]" />
+                <MoonIcon className="h-[1.2rem] w-[1.2rem] text-primary" />
               ) : (
-                <SunIcon className="h-[1.2rem] w-[1.2rem]" />
+                <SunIcon className="h-[1.2rem] w-[1.2rem] text-purple-400" />
               )}
             </Button>
             <div className="md:hidden ml-2">
@@ -188,13 +207,15 @@ const Navbar = () => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsOpen(!isOpen)}
-                className="z-50 relative"
+                className="z-50 relative rounded-full hover:bg-foreground/10 dark:ring-1 dark:ring-purple-500/30"
+                aria-label="Toggle menu"
+                aria-expanded={isOpen}
               >
                 <span className="sr-only">Open main menu</span>
-                {/* Fixed hamburger menu icon */}
+                {/* Hamburger menu icon */}
                 <div className="flex flex-col justify-center items-center w-6 h-6">
                   <motion.span
-                    className="block w-5 h-[2px] bg-foreground rounded-full mb-[5px]"
+                    className="block w-5 h-[2px] bg-gradient-to-r from-primary to-purple-500 rounded-full mb-[5px]"
                     animate={{
                       rotate: isOpen ? 45 : 0,
                       y: isOpen ? 7 : 0,
@@ -202,7 +223,7 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                   />
                   <motion.span
-                    className="block w-5 h-[2px] bg-foreground rounded-full"
+                    className="block w-5 h-[2px] bg-gradient-to-r from-primary to-purple-500 rounded-full"
                     animate={{
                       opacity: isOpen ? 0 : 1,
                       width: isOpen ? 0 : 20,
@@ -210,7 +231,7 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                   />
                   <motion.span
-                    className="block w-5 h-[2px] bg-foreground rounded-full mt-[5px]"
+                    className="block w-5 h-[2px] bg-gradient-to-r from-primary to-purple-500 rounded-full mt-[5px]"
                     animate={{
                       rotate: isOpen ? -45 : 0,
                       y: isOpen ? -7 : 0,
@@ -227,7 +248,9 @@ const Navbar = () => {
       {/* Mobile Menu with theme-specific background */}
       <motion.div
         className={`fixed inset-0 z-40 md:hidden flex flex-col min-h-screen ${
-          theme === "dark" ? "bg-black/95 text-white" : "bg-white/95 text-black"
+          theme === "dark"
+            ? "bg-black/95 text-white backdrop-blur-md"
+            : "bg-white/95 text-black backdrop-blur-md"
         }`}
         initial={{ opacity: 0, y: "-100%" }}
         animate={{
@@ -264,7 +287,7 @@ const Navbar = () => {
                     <span className="relative">
                       {item}
                       <motion.div
-                        className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-300"
+                        className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-primary via-purple-500 to-pink-500"
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: isOpen ? 1 : 0 }}
                         transition={{
@@ -293,9 +316,9 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   <span className="relative">
-                    Timeline
+                    More Work
                     <motion.div
-                      className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-300"
+                      className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-primary via-purple-500 to-pink-500"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: isOpen ? 1 : 0 }}
                       transition={{
@@ -324,7 +347,7 @@ const Navbar = () => {
                 <span className="relative">
                   Back to Home
                   <motion.div
-                    className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-300"
+                    className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-primary via-purple-500 to-pink-500"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: isOpen ? 1 : 0 }}
                     transition={{ duration: 0.4, delay: 0.2 }}
