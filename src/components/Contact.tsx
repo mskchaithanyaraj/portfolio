@@ -127,7 +127,7 @@ const Contact = () => {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://github.com/msk-chaithanya-raj"
+                  href="https://github.com/mskchaithanyaraj"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-primary hover:text-primary-focus"
@@ -138,7 +138,7 @@ const Contact = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/krishna-chaithanya-masimukku/"
+                  href="https://www.linkedin.com/in/mskchaithanyaraj/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-primary hover:text-primary-focus"
@@ -149,7 +149,7 @@ const Contact = () => {
               </li>
               <li>
                 <a
-                  href="https://x.com/SriKris84075274"
+                  href="https://x.com/mskchaithanya"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-primary hover:text-primary-focus"
