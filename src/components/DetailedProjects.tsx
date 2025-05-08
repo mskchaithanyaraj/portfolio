@@ -106,7 +106,7 @@ const DetailedProjects = () => {
                   </div>
 
                   <img
-                    src={project.imageUrl || "/placeholder.png"}
+                    src={project.imageUrl || "placeholder.png"}
                     alt={project.name}
                     className="w-full h-48 object-cover rounded-lg mb-4"
                   />

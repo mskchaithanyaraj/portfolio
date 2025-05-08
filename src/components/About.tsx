@@ -51,7 +51,7 @@ const About = () => {
                 )}
                 {/* Profile Image */}
                 <img
-                  src="/assets/profile.jpg"
+                  src="assets/profile.jpg"
                   alt="Developer"
                   className="rounded-full shadow-lg h-48 w-48 object-cover z-10"
                 />
@@ -82,7 +82,7 @@ const About = () => {
                     See My Work
                   </a>
                   <a
-                    href="/assets/resume.pdf" // Ensure the file is in the public folder
+                    href="assets/resume.pdf" // Ensure the file is in the public folder
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-5 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-sm"
@@ -90,7 +90,7 @@ const About = () => {
                     View Resume
                   </a>
                   <a
-                    href="/assets/resume.pdf" // Replace with your actual resume file path
+                    href="assets/resume.pdf" // Replace with your actual resume file path
                     download="Sri_Krishna_Resume.pdf" // Set the download filename
                     className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white px-5 py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg font-medium tracking-wide text-sm"
                   >
