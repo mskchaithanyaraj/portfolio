@@ -17,7 +17,7 @@ export const certifications: Certification[] = [
   {
     id: uuidv4(),
     name: "CodeIT'23",
-    imageUrl: "/assets/certifications/codeit.png",
+    imageUrl: "assets/certifications/codeit.png",
     category: "Intercollege Competitions",
     issuer: "SRGEC",
     date: "October 17, 2023",
@@ -33,7 +33,7 @@ export const certifications: Certification[] = [
   {
     id: uuidv4(),
     name: "Introduction to IOT",
-    imageUrl: "/assets/certifications/iot_nptel.png",
+    imageUrl: "assets/certifications/iot_nptel.png",
     category: "NPTEL",
     issuer: "NPTEL",
     date: "November 2024",
@@ -65,7 +65,7 @@ export const certifications: Certification[] = [
   {
     id: uuidv4(),
     name: "XPM 4.0 Fundamentals",
-    imageUrl: "/assets/certifications/xpm.jpg",
+    imageUrl: "assets/certifications/xpm.jpg",
     category: "Course Completions",
     issuer: "NxtWave",
     date: "April 10, 2023",
@@ -73,7 +73,7 @@ export const certifications: Certification[] = [
   {
     id: uuidv4(),
     name: "Build Your Own Dynamic Web Application",
-    imageUrl: "/assets/certifications/dynamic_web.jpg",
+    imageUrl: "assets/certifications/dynamic_web.jpg",
     category: "Course Completions",
     issuer: "NxtWave",
     date: "September 30, 2023",
@@ -81,7 +81,7 @@ export const certifications: Certification[] = [
   {
     id: uuidv4(),
     name: "Introduction to Databases",
-    imageUrl: "/assets/certifications/database.jpg",
+    imageUrl: "assets/certifications/database.jpg",
     category: "Course Completions",
     issuer: "NxtWave",
     date: "November 13, 2023",

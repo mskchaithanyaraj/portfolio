@@ -93,11 +93,7 @@ const CertificationCard = ({
           <CardContent className="p-0 flex-1 flex flex-col h-full">
             <div className="h-48 w-full overflow-hidden">
               <img
-                src={
-                  certification.imageUrl ||
-                  "/placeholder.svg?height=192&width=384" ||
-                  "/placeholder.svg"
-                }
+                src={certification.imageUrl || "placeholder.png"}
                 alt={certification.name}
                 className="w-full h-full object-cover rounded-t-lg cursor-pointer"
               />
@@ -140,11 +136,7 @@ const CertificationCard = ({
             exit={{ scale: 0.8 }}
           >
             <img
-              src={
-                certification.imageUrl ||
-                "/placeholder.svg?height=600&width=800" ||
-                "/placeholder.svg"
-              }
+              src={certification.imageUrl || "placeholder.png"}
               alt={certification.name}
               className="w-full h-full object-contain"
             />
