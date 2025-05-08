@@ -35,6 +35,18 @@ const Experience = () => {
       id="experience"
       className="relative overflow-hidden min-h-screen flex flex-col justify-center"
     >
+      {/* Section Heading */}
+      <motion.h2
+        className="text-3xl font-extrabold text-foreground mb-8 flex items-center px-40 pt-20"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.5 }}
+      >
+        <span className="mr-3">Professional Experience</span>
+        <span className="h-px flex-grow bg-gradient-to-r from-primary/50 to-transparent" />
+      </motion.h2>
+
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-24 w-96 h-96 rounded-full opacity-10 bg-gradient-to-tr from-primary to-blue-500 blur-3xl" />
