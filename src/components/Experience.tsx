@@ -10,6 +10,7 @@ import {
   MapPin,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
 } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
@@ -36,7 +37,7 @@ const Experience = () => {
     >
       {/* Section Heading */}
       <motion.h2
-        className="text-3xl font-extrabold text-foreground mb-8 flex items-center px-40 pt-20"
+        className="text-3xl font-extrabold text-foreground mb-8 flex items-center max-sm:text-2xl px-10 xl:px-40 pt-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -55,7 +56,7 @@ const Experience = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center relative z-10">
         <div className="flex items-start w-full">
           {/* Big Page Number */}
-          <div className="w-[20%] flex justify-center items-start pt-10">
+          <div className="w-[20%] flex justify-center items-start pt-10 max-md:hidden">
             <motion.div
               key={currentPage}
               initial={{ opacity: 0 }}
@@ -132,6 +133,8 @@ const Experience = () => {
 
 const ExperienceCard = ({ experience }: { experience: Experience }) => {
   const { theme } = useTheme();
+  const [expanded, setExpanded] = useState(false);
+  const maxVisible = 2;
 
   return (
     <motion.div
@@ -200,10 +203,28 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
               <div className="pt-2">
                 <h4 className="font-semibold mb-2">Key Responsibilities:</h4>
                 <ul className="list-disc pl-5 space-y-1 text-foreground/80">
-                  {experience.responsibilities.map((responsibility, index) => (
+                  {(expanded
+                    ? experience.responsibilities
+                    : experience.responsibilities.slice(0, maxVisible)
+                  ).map((responsibility, index) => (
                     <li key={index}>{responsibility}</li>
                   ))}
                 </ul>
+                {experience.responsibilities.length > maxVisible && (
+                  <button
+                    onClick={() => setExpanded(!expanded)}
+                    className="group mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white dark:text-black bg-primary shadow-lg backdrop-blur-md hover:scale-105 hover:shadow-xl transition-transform duration-300"
+                  >
+                    {expanded ? "View less" : "View more"}
+                    <motion.span
+                      initial={false}
+                      animate={{ rotate: expanded ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ChevronDown className="w-4 h-4 text-white dark:text-black group-hover:translate-y-0.5 transition-transform" />
+                    </motion.span>
+                  </button>
+                )}
               </div>
 
               <div className="flex flex-wrap gap-2 pt-4">

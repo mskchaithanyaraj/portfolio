@@ -1,12 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { certifications, type Certification } from "../data/certifications";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X, Maximize2 } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
-const ITEMS_PER_PAGE = 4;
+const useResponsiveItemsPerPage = () => {
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+
+  useEffect(() => {
+    const updateItems = () => {
+      const width = window.innerWidth;
+      if (width < 1024) {
+        setItemsPerPage(2);
+      } else {
+        setItemsPerPage(4);
+      }
+    };
+
+    updateItems();
+    window.addEventListener("resize", updateItems);
+    return () => window.removeEventListener("resize", updateItems);
+  }, []);
+
+  return itemsPerPage;
+};
 
 const Certifications = () => {
   const categories = [
@@ -34,11 +60,12 @@ const Certifications = () => {
       );
   };
 
+  const itemsPerPage = useResponsiveItemsPerPage();
   const filteredCertifications = sortedCertifications(selectedCategory);
-  const totalPages = Math.ceil(filteredCertifications.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filteredCertifications.length / itemsPerPage);
   const paginatedCertifications = filteredCertifications.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
   );
 
   const handleCategoryChange = (category: string) => {
@@ -82,17 +109,46 @@ const Certifications = () => {
         </motion.h2>
 
         {/* Category Selection */}
-        <div className="flex justify-center gap-2 mb-8">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={selectedCategory === category ? "default" : "outline"}
-              onClick={() => handleCategoryChange(category)}
-              className="whitespace-nowrap"
+        <div className="mb-8">
+          {/* Mobile Category Selector */}
+          <div className="block md:hidden px-4 py-3 bg-muted rounded-lg shadow-sm mb-6">
+            <label className="block text-sm font-medium text-muted-foreground mb-2">
+              Browse Certifications By
+            </label>
+            <Select
+              value={selectedCategory}
+              onValueChange={handleCategoryChange}
             >
-              {category}
-            </Button>
-          ))}
+              <SelectTrigger className="w-full bg-background border border-border rounded-md shadow-inner">
+                <SelectValue placeholder="Select a category" />
+              </SelectTrigger>
+              <SelectContent className="bg-background border border-border rounded-md shadow-lg">
+                {categories.map((category) => (
+                  <SelectItem
+                    key={category}
+                    value={category}
+                    className="hover:bg-primary/10 focus:bg-primary/10"
+                  >
+                    {category}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Desktop Buttons */}
+          <div className="hidden md:flex justify-center gap-2">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                onClick={() => handleCategoryChange(category)}
+                className="whitespace-nowrap"
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
         </div>
 
         {/* Certifications Grid */}
