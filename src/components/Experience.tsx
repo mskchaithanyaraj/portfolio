@@ -37,7 +37,7 @@ const Experience = () => {
     >
       {/* Section Heading */}
       <motion.h2
-        className="text-3xl font-extrabold text-foreground mb-8 flex items-center px-10 xl:px-40 pt-20"
+        className="text-3xl font-extrabold text-foreground mb-8 flex items-center px-5 xl:px-40 pt-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
