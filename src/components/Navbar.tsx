@@ -107,7 +107,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <div className="flex items-baseline space-x-6">
               {isHomePage ? (
                 <>
@@ -202,7 +202,7 @@ const Navbar = () => {
                 <SunIcon className="h-[1.2rem] w-[1.2rem] text-purple-400" />
               )}
             </Button>
-            <div className="md:hidden ml-2">
+            <div className="lg:hidden ml-2">
               <Button
                 variant="ghost"
                 size="icon"
@@ -247,7 +247,7 @@ const Navbar = () => {
 
       {/* Mobile Menu with theme-specific background */}
       <motion.div
-        className={`fixed inset-0 z-40 md:hidden flex flex-col min-h-screen ${
+        className={`fixed inset-0 z-40 lg:hidden flex flex-col min-h-screen ${
           theme === "dark"
             ? "bg-black/95 text-white backdrop-blur-md"
             : "bg-white/95 text-black backdrop-blur-md"
