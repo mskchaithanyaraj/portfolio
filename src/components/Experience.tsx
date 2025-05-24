@@ -37,13 +37,13 @@ const Experience = () => {
     >
       {/* Section Heading */}
       <motion.h2
-        className="text-3xl font-extrabold text-foreground mb-8 flex items-center max-sm:text-2xl px-10 xl:px-40 pt-20"
+        className="text-3xl font-extrabold text-foreground mb-8 flex items-center px-10 xl:px-40 pt-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5 }}
       >
-        <span className="mr-3">Professional Experience</span>
+        <span className="mr-3">Experience</span>
         <span className="h-px flex-grow bg-gradient-to-r from-primary/50 to-transparent" />
       </motion.h2>
 
