@@ -124,6 +124,7 @@ const DetailedProjects = () => {
                       {project.date.month} {project.date.year}
                     </span>
                   </div>
+                  <div className="h-10 md:hidden"></div>
 
                   <motion.div
                     className={`p-1 rounded-xl shadow-xl w-full ml-2 md:ml-0 overflow-hidden ${
