@@ -34,12 +34,15 @@ const useResponsiveItemsPerPage = () => {
   return itemsPerPage;
 };
 
+type Category = Certification["category"];
+
 const Certifications = () => {
-  const categories = [
+  const categories: Category[] = [
     "Intercollege Competitions",
     "NPTEL",
     "Course Completions",
     "Podcasts",
+    "Workshops",
   ];
 
   const [selectedCategory, setSelectedCategory] = useState(categories[2]);

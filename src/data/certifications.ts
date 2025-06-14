@@ -8,7 +8,8 @@ export interface Certification {
     | "Intercollege Competitions"
     | "NPTEL"
     | "Course Completions"
-    | "Podcasts";
+    | "Podcasts"
+    | "Workshops";
   issuer?: string;
   date?: string;
 }
@@ -139,5 +140,88 @@ export const certifications: Certification[] = [
     imageUrl: "assets/certifications/podcasts/aijobs.jpg",
     category: "Podcasts",
     issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "Ethical Hacking Mega Workshop",
+    imageUrl: "/public/assets/certifications/workshops/cybersecurity.jpeg",
+    category: "Workshops",
+    issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "DAMegaWorkshop – Sales Analytics Dashboard with Power BI",
+    imageUrl: "/public/assets/certifications/workshops/dataanalytics.jpeg",
+    category: "Workshops",
+    issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "AWS Fundamentals Certificate of Participation",
+    imageUrl: "/public/assets/certifications/workshops/aws.jpeg",
+    category: "Workshops",
+    issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "UI/UX Mega Workshop",
+    imageUrl: "/public/assets/certifications/workshops/uiux.jpeg",
+    category: "Workshops",
+    issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "Time Management Techniques",
+    imageUrl:
+      "/public/assets/certifications/podcasts/maximise_productivity.jpeg",
+    category: "Podcasts",
+    issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "Programming Tips to World‑Class Coder",
+    imageUrl: "/public/assets/certifications/podcasts/programming_tips.jpeg",
+    category: "Podcasts",
+    issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "Mastering Art of Product Engineering",
+    imageUrl:
+      "/public/assets/certifications/podcasts/mastering_art_of_product.jpeg",
+    category: "Podcasts",
+    issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "AI/ML Stories from Samsung Headquarters",
+    imageUrl: "/public/assets/certifications/podcasts/aimlstories.jpeg",
+    category: "Podcasts",
+    issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "Building Tech for Scale",
+    imageUrl:
+      "/public/assets/certifications/podcasts/building_tech_for_scale.jpeg",
+    category: "Podcasts",
+    issuer: "NxtWave",
+  },
+  {
+    id: uuidv4(),
+    name: "Building a Career in AI",
+    imageUrl:
+      "/public/assets/certifications/podcasts/build_a_career_in_ai.jpeg",
+    category: "Podcasts",
+    issuer: "NxtWave",
+  },
+
+  {
+    id: uuidv4(),
+    name: "10x Your Communication Intercollege",
+    imageUrl: "/public/assets/certifications/10xcommunication.jpeg",
+    category: "Intercollege Competitions",
+    issuer: "NxtWave",
+    date: "June 2025",
   },
 ];
