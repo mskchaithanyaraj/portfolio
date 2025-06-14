@@ -72,7 +72,7 @@ const Certifications = () => {
   );
 
   const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category);
+    setSelectedCategory(category as Category);
     setCurrentPage(1); // Reset to first page when changing category
   };
 
