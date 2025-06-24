@@ -12,17 +12,6 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    name: "Nxt Trendz ( ECommerce Clone - Amazon, Flipkart)",
-    description:
-      "A full-stack e-commerce platform with user authentication, product management, and order processing.",
-    techStack: ["React JS", "CSS", "REST API Calls", "JWT Token"],
-    keyLearnings: ["State management", "RESTful API design"],
-    githubLink: "https://github.com/msk-chaithanya-raj/nxt-trendz.git",
-    demoLink: "https://kcnxttrendz.ccbp.tech",
-    image: "assets/nxttrendz.png",
-  },
-  {
-    id: 2,
     name: "Chatty: Real-Time Messaging App",
     description: "Developed a real-time messaging web application.",
     techStack: [
@@ -45,6 +34,32 @@ export const projects: Project[] = [
     image: "assets/chatty.png",
   },
   {
+    id: 2,
+    name: "EstateX: Real Estate Web App",
+    description:
+      "Built a responsive platform to list, browse, and manage rental/sale properties with filtering.",
+    techStack: [
+      "React JS",
+      "TypeScript",
+      "Node JS",
+      "Express JS",
+      "MongoDB",
+      "Redux Toolkit",
+      "TailwindCSS",
+      "JWT",
+      "Google OAuth",
+      "Cloudinary",
+    ],
+    keyLearnings: [
+      "Redux-based state management",
+      "Image handling with Cloudinary",
+      "Scalable folder architecture",
+    ],
+    githubLink: "https://github.com/mskchaithanyaraj/estatex",
+    demoLink: "https://estatexonline.netlify.app",
+    image: "assets/estatex.png",
+  },
+  {
     id: 3,
     name: "HealU: Personalized Nutrition & Meal Planning Platform",
     description:
@@ -59,5 +74,6 @@ export const projects: Project[] = [
     demoLink: "https://healuonline.netlify.app/",
     image: "assets/healu.png",
   },
+
   // Add more projects as needed
 ];

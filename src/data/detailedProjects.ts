@@ -328,4 +328,50 @@ export const detailedProjects: DetailedProject[] = [
     githubLink: "https://github.com/msk-chaithanya-raj/nxt-trendz.git",
     demoLink: "https://kcnxttrendz.ccbp.tech",
   },
+
+  {
+    id: "11",
+    name: "EstateX",
+    description:
+      "A full-stack real estate platform enabling users to list, manage, and explore properties for rent or sale with advanced search and responsive theming.",
+    imageUrl: "assets/estatex.png",
+    date: {
+      month: "June",
+      year: 2025,
+    },
+    challenges: [
+      "Building secure authentication with role-based access",
+      "Managing global state across complex forms and pages",
+      "Implementing image upload and preview functionality",
+      "Creating a consistent UI with dark/light theme support",
+    ],
+    solutions: [
+      "Integrated JWT and Google OAuth for authentication",
+      "Used Redux Toolkit for structured state management",
+      "Configured Cloudinary and Multer for image handling",
+      "Built reusable components and Tailwind-based theming",
+    ],
+    outcomes: [
+      "Delivered a scalable full-stack application",
+      "Enabled smooth UX for listing creation and filtering",
+      "Strengthened MERN stack and authentication skills",
+    ],
+    techStack: [
+      "React.js",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "React Hook Form",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Google OAuth",
+      "Multer",
+      "Cloudinary",
+    ],
+    githubLink: "https://github.com/mskchaithanyaraj/estatex",
+    demoLink: "https://estatexonline.netlify.app",
+  },
 ];
