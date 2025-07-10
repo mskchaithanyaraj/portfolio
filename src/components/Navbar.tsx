@@ -143,21 +143,22 @@ const Navbar = () => {
                   ))}
                   <Link
                     to="/detailed-projects"
-                    className="text-foreground px-3 py-2 text-sm font-medium relative group"
+                    className="ml-6 px-4 py-2 text-sm font-medium border-2 border-foreground/20 rounded-lg hover:border-foreground/40 hover:bg-foreground/5 transition-all duration-200"
                     onMouseEnter={() => setHoveredItem("more-work")}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
-                    More Work
-                    <div className="absolute -bottom-1 left-0 w-full h-[2px] overflow-hidden">
-                      <motion.div
-                        className="h-full w-full bg-gradient-to-r from-primary via-purple-500 to-pink-500"
-                        initial={{ x: "-100%" }}
+                    <span className="flex items-center">
+                      More Work
+                      <motion.span
+                        className="ml-2 inline-block"
                         animate={{
-                          x: hoveredItem === "more-work" ? 0 : "-100%",
+                          x: hoveredItem === "more-work" ? 2 : 0,
                         }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      />
-                    </div>
+                        transition={{ duration: 0.2 }}
+                      >
+                        →
+                      </motion.span>
+                    </span>
                   </Link>
                 </>
               ) : (
@@ -312,20 +313,12 @@ const Navbar = () => {
               >
                 <Link
                   to="/detailed-projects"
-                  className="block px-3 py-2 text-2xl font-medium text-center relative"
+                  className="inline-block px-6 py-3 mt-6 text-xl font-medium border-2 border-current rounded-lg hover:bg-foreground/5 transition-all duration-200"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="relative">
+                  <span className="flex items-center justify-center">
                     More Work
-                    <motion.div
-                      className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-primary via-purple-500 to-pink-500"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: isOpen ? 1 : 0 }}
-                      transition={{
-                        duration: 0.4,
-                        delay: 0.2 + navItems.length * 0.05,
-                      }}
-                    />
+                    <span className="ml-2">→</span>
                   </span>
                 </Link>
               </motion.div>

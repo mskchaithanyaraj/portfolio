@@ -108,7 +108,10 @@ const About = () => {
                 className="space-y-8 order-2 md:order-2"
                 variants={itemVariants}
               >
-                <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl bg-gradient-to-r from-primary via-purple-500 to-pink-500 text-transparent bg-clip-text leading-tight">
+                <h1
+                  className="font-bold max-sm:text-center text-5xl bg-gradient-to-r from-primary via-purple-500 to-pink-500 text-transparent bg-clip-text leading-tight"
+                  style={{ fontFamily: "Barriecito, cursive" }}
+                >
                   <Typewriter
                     words={["Hi, I'm Chaithu  :)"]}
                     cursor
@@ -118,10 +121,18 @@ const About = () => {
                 </h1>
 
                 <p className="text-foreground/80 leading-relaxed text-lg">
-                  Frontend developer specializing in creating beautiful,
-                  responsive web experiences. Passionate about crafting clean
-                  code and user-centered designs that combine aesthetics with
-                  functionality.
+                  I build <span className="font-semibold">cool stuff</span> on
+                  the web that people actually want to use.{" "}
+                  <span className="font-medium">I am a</span> developer who
+                  loves turning{" "}
+                  <span className="font-semibold italic">
+                    ideas into reality
+                  </span>{" "}
+                  (and fixing{" "}
+                  <span className="font-mono text-sm bg-foreground/5 px-2 py-1 rounded">
+                    bugs at 2 AM
+                  </span>
+                  ).
                 </p>
 
                 <div className="flex flex-wrap gap-4 pt-4">
