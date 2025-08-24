@@ -9,6 +9,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import DetailedProjects from "./components/DetailedProjects";
+import HobbyProjects from "./components/HobbyProjects";
 import { Toaster } from "react-hot-toast";
 import Loader from "./components/Loader"; // Import the Loader component
 import { useState, useEffect } from "react";
@@ -60,6 +61,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/detailed-projects" element={<DetailedProjects />} />
+            <Route path="/hobby-projects" element={<HobbyProjects />} />
           </Routes>
         )}
         <Toaster position="top-center" reverseOrder={false} />
