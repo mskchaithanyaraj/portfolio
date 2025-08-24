@@ -4,6 +4,8 @@ import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { Maximize2, Calendar, Github, ExternalLink } from "lucide-react";
 import { hobbyProjects } from "../data/hobbyProjects";
+// Type definitions for props
+import type { FC } from "react";
 
 const HobbyProjects = () => {
   useEffect(() => {
@@ -225,8 +227,23 @@ const HobbyProjects = () => {
   );
 };
 
-// Extracted ProjectCard component for better organization
-const ProjectCard = ({ project, setPreviewImg }) => {
+type HobbyProject = {
+  id: string;
+  name: string;
+  description: string;
+  date: { month: string; year: number };
+  techStack: string[];
+  imageUrl?: string;
+  githubLink?: string;
+  demoLink?: string;
+};
+
+type ProjectCardProps = {
+  project: HobbyProject;
+  setPreviewImg: (img: string) => void;
+};
+
+const ProjectCard: FC<ProjectCardProps> = ({ project, setPreviewImg }) => {
   return (
     <motion.div whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700">
@@ -262,7 +279,7 @@ const ProjectCard = ({ project, setPreviewImg }) => {
               Technologies Used
             </h4>
             <div className="flex flex-wrap gap-2">
-              {project.techStack.map((tech, i) => (
+              {project.techStack.map((tech: string, i: number) => (
                 <span
                   key={i}
                   className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700"
