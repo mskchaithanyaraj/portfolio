@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 export const hobbyProjects = [
   {
     id: uuidv4(),
-    name: "Stride",
+    name: "Stride, A Progressive Web App",
     description:
       "A modern, minimalistic to-do tracker with smart progress tracking, subtask management, and celebration animations. Features grayscale-only UI, light/dark themes, and seamless inline editing for smooth workflow.",
     date: { month: "Aug", year: 2025 },
