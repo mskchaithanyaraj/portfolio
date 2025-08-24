@@ -252,7 +252,7 @@ const Navbar = () => {
                   onMouseLeave={() => setHoveredItem(null)}
                 >
                   Back to Home
-                  <div className="absolute -bottom-1 left-0 w-full h-[2px] overflow-hidden">
+                  <div className="absolute bottom-0 left-0 w-[95%] h-[2px] overflow-hidden">
                     <motion.div
                       className="h-full w-full bg-gradient-to-r from-primary via-purple-500 to-pink-500"
                       initial={{ x: "-100%" }}
