@@ -24,4 +24,15 @@ export const hobbyProjects = [
       "https://github.com/mskchaithanyaraj/interview-prep-checklist.git",
     demoLink: "https://interviewprep-pi.vercel.app/",
   },
+  {
+    id: uuidv4(),
+    name: "Test for Automation",
+    description:
+      "Comprehensive testing environment for UI automation scenarios. Includes tricky elements like fake inputs, contentEditable DIVs, dynamic attributes, morphing elements, custom dropdowns, hidden/shadow elements, and deeply nested structures — perfect for pushing automation tools to their limits.",
+    date: { month: "Jun", year: 2025 },
+    techStack: ["React.js", "JavaScript", "Tailwind CSS"],
+    imageUrl: "/assets/banners/test-for-automation-banner.png",
+    githubLink: "https://github.com/mskchaithanyaraj/test-for-automation",
+    demoLink: "https://test-for-automation.vercel.app/",
+  },
 ];
