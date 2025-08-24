@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
-import { Maximize2, Calendar, Github, ExternalLink } from "lucide-react";
+import {
+  Maximize2,
+  Calendar,
+  Github,
+  ExternalLink,
+  Sparkles,
+} from "lucide-react";
 import { hobbyProjects } from "../data/hobbyProjects";
 // Type definitions for props
 import type { FC } from "react";
@@ -121,7 +127,7 @@ const HobbyProjects = () => {
           </p>
         </motion.div>
 
-        {/* Timeline */}
+        {/* Timeline Container */}
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
           <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 to-blue-600"></div>
@@ -201,27 +207,106 @@ const HobbyProjects = () => {
               );
             })}
           </motion.div>
-          {/* End of timeline message */}
-          <div className="flex flex-col items-center justify-center mt-10 mb-4">
-            <div className="text-lg md:text-xl font-semibold text-blue-700 dark:text-blue-300 mb-2 text-center">
-              That's all, more projects coming soon ;)
-            </div>
-            <div className="text-sm text-gray-600 dark:text-gray-300 text-center max-w-md">
-              Make sure to try the above projects.
-              <br />
-              If you find any issues, please raise them on{" "}
-              <a
-                href="https://github.com/mskchaithanyaraj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-blue-500 hover:text-blue-700"
+
+          {/* Timeline End Indicator */}
+          <motion.div
+            className="relative flex justify-center mt-16"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
+            {/* End dot */}
+            <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+          </motion.div>
+        </div>
+
+        {/* End Section - Separated from timeline */}
+        <motion.div
+          className="max-w-4xl mx-auto mt-20"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.6 }}
+        >
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-200/50 dark:border-blue-700/50 shadow-lg">
+            <div className="text-center">
+              {/* Header with icon */}
+              <motion.div
+                className="flex items-center justify-center mb-4"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 1.2, duration: 0.4, type: "spring" }}
               >
-                GitHub
-              </a>
-              !
+                <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-3">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+              </motion.div>
+
+              {/* Main message */}
+              <motion.h2
+                className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.4, duration: 0.5 }}
+              >
+                That's all for now; more projects will be coming soon!
+              </motion.h2>
+
+              {/* Subtitle */}
+              <motion.div
+                className="text-gray-600 dark:text-gray-300 mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6, duration: 0.5 }}
+              >
+                <p className="text-lg mb-2">
+                  Make sure to try the above projects.
+                </p>
+                <p className="text-base">
+                  If you find any issues, please raise them on{" "}
+                  <motion.a
+                    href="https://github.com/mskchaithanyaraj"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors underline decoration-2 underline-offset-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Github className="w-4 h-4 mr-1" />
+                    GitHub
+                  </motion.a>
+                  !
+                </p>
+              </motion.div>
+
+              {/* Call to action */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.8, duration: 0.5 }}
+              >
+                <Link
+                  to="/"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                >
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                  Back to Portfolio
+                </Link>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
