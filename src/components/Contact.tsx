@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-hot-toast";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaCode } from "react-icons/fa";
 import { Send, Loader2 } from "lucide-react";
 import emailjs from "emailjs-com";
 
@@ -238,6 +238,26 @@ const Contact = () => {
                             <div>
                               <span className="block font-medium">
                                 LinkedIn
+                              </span>
+                              <span className="text-sm text-muted-foreground">
+                                @mskchaithanyaraj
+                              </span>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://leetcode.com/u/mskchaithanyaraj/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center text-foreground hover:text-primary transition-colors group"
+                          >
+                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 mr-3 group-hover:bg-primary/20 transition-colors">
+                              <FaCode className="w-5 h-5 text-primary" />
+                            </div>
+                            <div>
+                              <span className="block font-medium">
+                                LeetCode
                               </span>
                               <span className="text-sm text-muted-foreground">
                                 @mskchaithanyaraj

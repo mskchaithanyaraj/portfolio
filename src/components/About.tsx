@@ -8,6 +8,7 @@ import {
   Github,
   Linkedin,
   Twitter,
+  Code,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -75,14 +76,14 @@ const About = () => {
                   </div>
 
                   {/* Social media links that appear on hover */}
-                  <div className="absolute inset-0 rounded-full flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50">
+                  <div className="absolute inset-0 rounded-full flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50">
                     <a
                       href="https://github.com/mskchaithanyaraj"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-white text-black p-3 rounded-full hover:scale-110 transition-transform"
                     >
-                      <Github size={24} />
+                      <Github size={20} />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/mskchaithanyaraj/"
@@ -90,7 +91,16 @@ const About = () => {
                       rel="noopener noreferrer"
                       className="bg-white text-[#0077b5] p-3 rounded-full hover:scale-110 transition-transform"
                     >
-                      <Linkedin size={24} />
+                      <Linkedin size={20} />
+                    </a>
+                    <a
+                      href="https://leetcode.com/u/mskchaithanyaraj/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white text-[#FFA116] p-3 rounded-full hover:scale-110 transition-transform"
+                      title="LeetCode Profile"
+                    >
+                      <Code size={20} />
                     </a>
                     <a
                       href="https://x.com/mskchaithanya"
@@ -98,7 +108,7 @@ const About = () => {
                       rel="noopener noreferrer"
                       className="bg-white text-black p-3 rounded-full hover:scale-110 transition-transform"
                     >
-                      <Twitter size={24} />
+                      <Twitter size={20} />
                     </a>
                   </div>
                 </div>

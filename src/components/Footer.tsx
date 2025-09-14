@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaCode } from "react-icons/fa";
 import { Heart } from "lucide-react";
 
 const Footer = () => {
@@ -85,6 +85,12 @@ const Footer = () => {
                 icon: FaLinkedin,
                 label: "LinkedIn",
                 hoverColor: "hover:text-[#0077b5]",
+              },
+              {
+                href: "https://leetcode.com/u/mskchaithanyaraj/",
+                icon: FaCode,
+                label: "LeetCode",
+                hoverColor: "hover:text-[#FFA116]",
               },
               {
                 href: "https://x.com/mskchaithanya",
