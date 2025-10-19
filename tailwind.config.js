@@ -4,52 +4,74 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
+        // Primary colors
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          0: "var(--clr-primary-a0)",
+          10: "var(--clr-primary-a10)",
+          20: "var(--clr-primary-a20)",
+          30: "var(--clr-primary-a30)",
+          40: "var(--clr-primary-a40)",
+          50: "var(--clr-primary-a50)",
+          DEFAULT: "var(--clr-primary-a0)",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+        // Surface colors
+        surface: {
+          0: "var(--clr-surface-a0)",
+          10: "var(--clr-surface-a10)",
+          20: "var(--clr-surface-a20)",
+          30: "var(--clr-surface-a30)",
+          40: "var(--clr-surface-a40)",
+          50: "var(--clr-surface-a50)",
+          DEFAULT: "var(--clr-surface-a0)",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        // Tonal surface colors
+        "surface-tonal": {
+          0: "var(--clr-surface-tonal-a0)",
+          10: "var(--clr-surface-tonal-a10)",
+          20: "var(--clr-surface-tonal-a20)",
+          30: "var(--clr-surface-tonal-a30)",
+          40: "var(--clr-surface-tonal-a40)",
+          50: "var(--clr-surface-tonal-a50)",
+          DEFAULT: "var(--clr-surface-tonal-a0)",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+        // Status colors
+        success: {
+          0: "var(--clr-success-a0)",
+          10: "var(--clr-success-a10)",
+          20: "var(--clr-success-a20)",
+          DEFAULT: "var(--clr-success-a0)",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+        warning: {
+          0: "var(--clr-warning-a0)",
+          10: "var(--clr-warning-a10)",
+          20: "var(--clr-warning-a20)",
+          DEFAULT: "var(--clr-warning-a0)",
         },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
+        danger: {
+          0: "var(--clr-danger-a0)",
+          10: "var(--clr-danger-a10)",
+          20: "var(--clr-danger-a20)",
+          DEFAULT: "var(--clr-danger-a0)",
         },
+        info: {
+          0: "var(--clr-info-a0)",
+          10: "var(--clr-info-a10)",
+          20: "var(--clr-info-a20)",
+          DEFAULT: "var(--clr-info-a0)",
+        },
+      },
+      spacing: {
+        xs: "var(--spacing-xs)",
+        sm: "var(--spacing-sm)",
+        md: "var(--spacing-md)",
+        lg: "var(--spacing-lg)",
+        xl: "var(--spacing-xl)",
+      },
+      transitionDuration: {
+        fast: "var(--transition-fast)",
+        normal: "var(--transition-normal)",
+        slow: "var(--transition-slow)",
       },
     },
   },

@@ -1,48 +1,79 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Import modern, professional fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    /* ===== Base Colors ===== */
+    --clr-dark-a0: #000000;
+    --clr-light-a0: #ffffff;
 
-    /* Set default font to Inter */
+    /* ===== Light Mode - Primary Colors ===== */
+    --clr-primary-a0: #000000;
+    --clr-primary-a10: #1a1a1a;
+    --clr-primary-a20: #333333;
+    --clr-primary-a30: #4d4d4d;
+    --clr-primary-a40: #666666;
+    --clr-primary-a50: #808080;
+
+    /* ===== Light Mode - Surface Colors ===== */
+    --clr-surface-a0: #ffffff;
+    --clr-surface-a10: #f5f5f5;
+    --clr-surface-a20: #ebebeb;
+    --clr-surface-a30: #e0e0e0;
+    --clr-surface-a40: #d6d6d6;
+    --clr-surface-a50: #cccccc;
+
+    /* ===== Light Mode - Tonal Surface Colors ===== */
+    --clr-surface-tonal-a0: #f8f8f8;
+    --clr-surface-tonal-a10: #eeeeee;
+    --clr-surface-tonal-a20: #e3e3e3;
+    --clr-surface-tonal-a30: #d9d9d9;
+    --clr-surface-tonal-a40: #cfcfcf;
+    --clr-surface-tonal-a50: #c4c4c4;
+
+    /* ===== Status Colors (Same for both modes) ===== */
+    --clr-success-a0: #22946e;
+    --clr-success-a10: #47d5a6;
+    --clr-success-a20: #9ae8ce;
+
+    --clr-warning-a0: #a87a2a;
+    --clr-warning-a10: #d7ac61;
+    --clr-warning-a20: #ecd7b2;
+
+    --clr-danger-a0: #9c2121;
+    --clr-danger-a10: #d94a4a;
+    --clr-danger-a20: #eb9e9e;
+
+    --clr-info-a0: #21498a;
+    --clr-info-a10: #4077d1;
+    --clr-info-a20: #92b2e5;
+
+    /* ===== Transition Variables ===== */
+    --transition-fast: 150ms ease-in-out;
+    --transition-normal: 250ms ease-in-out;
+    --transition-slow: 350ms ease-in-out;
+
+    /* ===== Spacing Variables ===== */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* ===== Typography ===== */
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    line-height: 1.5;
+    line-height: 1.6;
     font-weight: 400;
 
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    color-scheme: light;
+    color: var(--clr-primary-a0);
+    background-color: var(--clr-surface-a0);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -52,40 +83,49 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    /* ===== Dark Mode - Primary Colors ===== */
+    --clr-primary-a0: #e8e8e8;
+    --clr-primary-a10: #d9d9d9;
+    --clr-primary-a20: #cacaca;
+    --clr-primary-a30: #a8a8a8;
+    --clr-primary-a40: #8f8f8f;
+    --clr-primary-a50: #767676;
+
+    /* ===== Dark Mode - Surface Colors ===== */
+    --clr-surface-a0: #1e1e1e;
+    --clr-surface-a10: #2d2d2d;
+    --clr-surface-a20: #3c3c3c;
+    --clr-surface-a30: #4b4b4b;
+    --clr-surface-a40: #5a5a5a;
+    --clr-surface-a50: #696969;
+
+    /* ===== Dark Mode - Tonal Surface Colors ===== */
+    --clr-surface-tonal-a0: #282828;
+    --clr-surface-tonal-a10: #373737;
+    --clr-surface-tonal-a20: #464646;
+    --clr-surface-tonal-a30: #555555;
+    --clr-surface-tonal-a40: #646464;
+    --clr-surface-tonal-a50: #737373;
+
+    color-scheme: dark;
+    color: var(--clr-primary-a0);
+    background-color: var(--clr-surface-a0);
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--clr-surface-a0);
+    color: var(--clr-primary-a0);
+    transition: background-color var(--transition-normal),
+      color var(--transition-normal);
+    overflow-x: hidden;
   }
 
   h1,
@@ -96,132 +136,147 @@
   h6 {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
+    color: var(--clr-primary-a0);
+    transition: color var(--transition-normal);
+  }
+
+  p {
+    color: var(--clr-primary-a30);
+    transition: color var(--transition-normal);
+  }
+
+  a {
+    color: var(--clr-primary-a0);
+    text-decoration: none;
+    transition: color var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  a:hover {
+    opacity: 0.8;
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-@keyframes spin-slow {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
-}
-
-@keyframes skill-scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-33.333%);
-  }
-}
-
-.animate-skill-scroll {
-  animation: skill-scroll 30s linear infinite;
-}
-
-.animate-skill-paused {
-  animation-play-state: paused;
-}
-
-@keyframes infinite-scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-33.333%);
-  }
-}
-
-.animate-infinite-scroll {
-  animation: infinite-scroll 15s linear infinite;
-}
-
-/* Custom utility classes */
-.glass {
-  @apply bg-background/60 backdrop-blur-sm border border-white/10;
-}
-
-.gradient-text {
-  @apply bg-gradient-to-r from-primary via-purple-500 to-pink-500 text-transparent bg-clip-text;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-/* Modal content - completely hide scrollbar */
-.modal-content {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.modal-content::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-/* Webkit scrollbar hide for modal */
-.webkit-scrollbar-hide::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-  background: transparent;
-}
-
-/* Custom modal scrollbar */
-.modal-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(124, 58, 237, 0.3) transparent;
-}
-
-.modal-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.modal-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.modal-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(124, 58, 237, 0.3);
-  border-radius: 3px;
-}
-
-.modal-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 58, 237, 0.5);
-}
-
-@media (prefers-color-scheme: dark) {
-  .modal-scrollbar {
-    scrollbar-color: rgba(168, 85, 247, 0.4) transparent;
+@layer components {
+  /* ===== Button Styles ===== */
+  .btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 1px solid var(--clr-primary-a20);
+    background-color: transparent;
+    color: var(--clr-primary-a0);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-weight: 500;
   }
 
-  .modal-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(168, 85, 247, 0.4);
+  .btn:hover {
+    background-color: var(--clr-primary-a0);
+    color: var(--clr-surface-a0);
+    border-color: var(--clr-primary-a0);
   }
 
-  .modal-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(168, 85, 247, 0.6);
+  .btn-primary {
+    background-color: var(--clr-primary-a0);
+    color: var(--clr-surface-a0);
+    border-color: var(--clr-primary-a0);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--clr-primary-a20);
+    border-color: var(--clr-primary-a20);
+  }
+
+  /* ===== Card Styles ===== */
+  .card {
+    background-color: var(--clr-surface-a0);
+    border: 1px solid var(--clr-surface-a30);
+    transition: border-color var(--transition-normal);
+  }
+
+  .card:hover {
+    border-color: var(--clr-primary-a40);
+  }
+
+  /* ===== Section Styles ===== */
+  .section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--clr-surface-a0);
+  }
+
+  /* ===== Text Styles ===== */
+  .text-primary {
+    color: var(--clr-primary-a0);
+  }
+
+  .text-secondary {
+    color: var(--clr-primary-a30);
+  }
+
+  .text-muted {
+    color: var(--clr-primary-a40);
+  }
+
+  /* ===== Border Styles ===== */
+  .border-subtle {
+    border-color: var(--clr-surface-a30);
+  }
+
+  .border-divider {
+    border-color: var(--clr-surface-a20);
   }
 }
 
-/* Custom font for typewriter effect */
-.font-press {
-  font-family: "Poppins", sans-serif;
+@layer utilities {
+  /* ===== Animations ===== */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn var(--transition-slow) ease-out;
+  }
+
+  /* ===== Scrollbar Styles ===== */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ===== Minimal Custom Scrollbar ===== */
+  .scrollbar-minimal {
+    scrollbar-width: thin;
+    scrollbar-color: var(--clr-surface-a30) transparent;
+  }
+
+  .scrollbar-minimal::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-minimal::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-minimal::-webkit-scrollbar-thumb {
+    background: var(--clr-surface-a30);
+    border-radius: 3px;
+  }
+
+  .scrollbar-minimal::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-surface-a40);
+  }
 }

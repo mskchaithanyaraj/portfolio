@@ -22,32 +22,26 @@ const Footer = () => {
 
   return (
     <motion.footer
-      className="py-12 bg-background relative overflow-hidden border-t border-border/20"
+      className="py-12 bg-surface-0 relative overflow-hidden border-t border-surface-30"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-5 bg-gradient-to-br from-primary to-purple-500 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full opacity-5 bg-gradient-to-tr from-primary to-blue-500 blur-3xl" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={itemVariants}
           className="flex flex-col md:flex-row justify-between items-center gap-6"
         >
           {/* Left: Copyright */}
           <div className="text-center md:text-left">
-            <p className="text-muted-foreground text-sm flex items-center justify-center md:justify-start gap-1 flex-wrap">
+            <p className="text-primary-30 text-sm flex items-center justify-center md:justify-start gap-1 flex-wrap">
               <span>
                 &copy; {currentYear} Sri Krishna Chaithanya Raj Masimukku.
               </span>
               <span className="flex items-center gap-1">
                 Built with
-                <Heart className="h-4 w-4 text-red-500 animate-pulse" />
+                <Heart className="h-4 w-4 text-red-500" />
               </span>
             </p>
           </div>
@@ -64,7 +58,7 @@ const Footer = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-105 transform"
+                className="text-sm text-primary-30 hover:text-primary-0 transition-all duration-normal"
               >
                 {link.label}
               </a>
@@ -78,25 +72,21 @@ const Footer = () => {
                 href: "https://github.com/mskchaithanyaraj",
                 icon: FaGithub,
                 label: "GitHub",
-                hoverColor: "hover:text-gray-900 dark:hover:text-white",
               },
               {
                 href: "https://www.linkedin.com/in/mskchaithanyaraj/",
                 icon: FaLinkedin,
                 label: "LinkedIn",
-                hoverColor: "hover:text-[#0077b5]",
               },
               {
                 href: "https://leetcode.com/u/mskchaithanyaraj/",
                 icon: FaCode,
                 label: "LeetCode",
-                hoverColor: "hover:text-[#FFA116]",
               },
               {
                 href: "https://x.com/mskchaithanya",
                 icon: FaTwitter,
                 label: "Twitter",
-                hoverColor: "hover:text-[#1da1f2]",
               },
             ].map((social) => (
               <motion.a
@@ -104,15 +94,12 @@ const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-muted-foreground ${social.hoverColor} transition-all duration-300 transform hover:scale-110 group`}
+                className="text-primary-0 hover:text-primary-20 transition-all duration-normal"
                 aria-label={social.label}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="relative">
-                  <div className="absolute inset-0 rounded-full bg-primary/20 scale-0 group-hover:scale-100 transition-transform duration-300" />
-                  <social.icon className="h-5 w-5 relative z-10 p-0.5" />
-                </div>
+                <social.icon className="h-5 w-5" />
               </motion.a>
             ))}
           </div>

@@ -1,12 +1,8 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 import { toast } from "react-hot-toast";
 import { FaGithub, FaLinkedin, FaTwitter, FaCode } from "react-icons/fa";
-import { Send, Loader2 } from "lucide-react";
+import { Send, Loader2, Mail } from "lucide-react";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
@@ -64,23 +60,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-background relative">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10 bg-gradient-to-br from-primary to-purple-500 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full opacity-10 bg-gradient-to-tr from-primary to-blue-500 blur-3xl" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="contact" className="py-20 bg-surface-0 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          className="text-3xl font-extrabold text-foreground mb-8 flex items-center"
+          className="text-3xl font-extrabold text-primary-0 mb-8 flex items-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
           <span className="mr-3">Contact Me</span>
-          <span className="h-px flex-grow bg-gradient-to-r from-primary/50 to-transparent" />
+          <span className="h-px flex-grow bg-surface-30" />
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -90,10 +80,10 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <Card className="overflow-hidden border-none shadow-xl bg-card/60 backdrop-blur-sm h-full">
-              <CardContent className="p-6 md:p-8">
+            <div className="overflow-hidden border border-surface-30 rounded-lg bg-surface-0 h-full">
+              <div className="p-6 md:p-8">
                 <motion.h3
-                  className="text-xl font-semibold mb-6 bg-gradient-to-r from-primary via-purple-500 to-pink-500 text-transparent bg-clip-text"
+                  className="text-xl font-semibold mb-6 text-primary-0"
                   variants={itemVariants}
                 >
                   Send Me a Message
@@ -107,11 +97,11 @@ const Contact = () => {
                   <motion.div variants={itemVariants}>
                     <label
                       htmlFor="from_name"
-                      className="block text-sm font-medium text-foreground mb-2"
+                      className="block text-sm font-medium text-primary-0 mb-2"
                     >
                       Name
                     </label>
-                    <Input
+                    <input
                       type="text"
                       id="name"
                       name="from_name"
@@ -119,18 +109,18 @@ const Contact = () => {
                       value={formData.from_name}
                       onChange={handleChange}
                       required
-                      className="bg-background/50 border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                      className="w-full px-4 py-2 bg-surface-0 border border-surface-30 rounded-md text-primary-0 focus:border-primary-0 focus:outline-none transition-all duration-normal"
                     />
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
                     <label
                       htmlFor="reply_to"
-                      className="block text-sm font-medium text-foreground mb-2"
+                      className="block text-sm font-medium text-primary-0 mb-2"
                     >
                       Email
                     </label>
-                    <Input
+                    <input
                       type="email"
                       id="email"
                       name="reply_to"
@@ -138,33 +128,33 @@ const Contact = () => {
                       value={formData.reply_to}
                       onChange={handleChange}
                       required
-                      className="bg-background/50 border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                      className="w-full px-4 py-2 bg-surface-0 border border-surface-30 rounded-md text-primary-0 focus:border-primary-0 focus:outline-none transition-all duration-normal"
                     />
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-foreground mb-2"
+                      className="block text-sm font-medium text-primary-0 mb-2"
                     >
                       Message
                     </label>
-                    <Textarea
+                    <textarea
                       id="message"
                       name="message"
                       placeholder="Your Message"
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="min-h-[120px] bg-background/50 border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+                      className="w-full min-h-[120px] px-4 py-2 bg-surface-0 border border-surface-30 rounded-md text-primary-0 focus:border-primary-0 focus:outline-none transition-all duration-normal resize-none"
                     />
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <Button
+                    <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
+                      className="w-full px-4 py-2 bg-primary-0 hover:bg-primary-20 text-surface-0 rounded-md transition-all duration-normal disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                     >
                       {isSubmitting ? (
                         <>
@@ -177,11 +167,11 @@ const Contact = () => {
                           Send Message
                         </>
                       )}
-                    </Button>
+                    </button>
                   </motion.div>
                 </form>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
@@ -190,105 +180,109 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <Card className="overflow-hidden border-none shadow-xl bg-card/60 backdrop-blur-sm h-full">
-              <CardContent className="p-6 md:p-8">
+            <div className="overflow-hidden border border-surface-30 rounded-lg bg-surface-0 h-full">
+              <div className="p-6 md:p-8">
                 <motion.h3
-                  className="text-xl font-semibold mb-6 bg-gradient-to-r from-primary via-purple-500 to-pink-500 text-transparent bg-clip-text"
+                  className="text-xl font-semibold mb-6 text-primary-0"
                   variants={itemVariants}
                 >
                   Connect with Me
                 </motion.h3>
 
                 <motion.div className="space-y-6" variants={itemVariants}>
-                  <div className="relative overflow-hidden rounded-lg bg-gradient-to-r from-primary/10 to-purple-500/10 p-px">
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-purple-500 animate-gradient-x opacity-20" />
-                    <div className="relative bg-background/80 backdrop-blur-sm p-5 rounded-lg">
-                      <h4 className="text-lg font-medium mb-4 text-foreground">
-                        Social Profiles
-                      </h4>
-                      <ul className="space-y-4">
-                        <li>
-                          <a
-                            href="https://github.com/mskchaithanyaraj"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center text-foreground hover:text-primary transition-colors group"
-                          >
-                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 mr-3 group-hover:bg-primary/20 transition-colors">
-                              <FaGithub className="w-5 h-5 text-primary" />
-                            </div>
-                            <div>
-                              <span className="block font-medium">GitHub</span>
-                              <span className="text-sm text-muted-foreground">
-                                @mskchaithanyaraj
-                              </span>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://www.linkedin.com/in/mskchaithanyaraj/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center text-foreground hover:text-primary transition-colors group"
-                          >
-                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 mr-3 group-hover:bg-primary/20 transition-colors">
-                              <FaLinkedin className="w-5 h-5 text-primary" />
-                            </div>
-                            <div>
-                              <span className="block font-medium">
-                                LinkedIn
-                              </span>
-                              <span className="text-sm text-muted-foreground">
-                                @mskchaithanyaraj
-                              </span>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://leetcode.com/u/mskchaithanyaraj/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center text-foreground hover:text-primary transition-colors group"
-                          >
-                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 mr-3 group-hover:bg-primary/20 transition-colors">
-                              <FaCode className="w-5 h-5 text-primary" />
-                            </div>
-                            <div>
-                              <span className="block font-medium">
-                                LeetCode
-                              </span>
-                              <span className="text-sm text-muted-foreground">
-                                @mskchaithanyaraj
-                              </span>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://x.com/mskchaithanya"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center text-foreground hover:text-primary transition-colors group"
-                          >
-                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 mr-3 group-hover:bg-primary/20 transition-colors">
-                              <FaTwitter className="w-5 h-5 text-primary" />
-                            </div>
-                            <div>
-                              <span className="block font-medium">Twitter</span>
-                              <span className="text-sm text-muted-foreground">
-                                @mskchaithanya
-                              </span>
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+                  <ul className="space-y-4">
+                    <li>
+                      <a
+                        href="mailto:mskchaithanyaraj@gmail.com"
+                        className="flex items-center text-primary-0 hover:text-primary-20 transition-all duration-normal group"
+                      >
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-surface-30 mr-3 group-hover:border-primary-0 transition-all duration-normal">
+                          <Mail className="w-5 h-5 text-primary-0" />
+                        </div>
+                        <div>
+                          <span className="block font-medium">Gmail</span>
+                          <span className="text-sm text-primary-30">
+                            mskchaithanyaraj@gmail.com
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://github.com/mskchaithanyaraj"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-primary-0 hover:text-primary-20 transition-all duration-normal group"
+                      >
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-surface-30 mr-3 group-hover:border-primary-0 transition-all duration-normal">
+                          <FaGithub className="w-5 h-5 text-primary-0" />
+                        </div>
+                        <div>
+                          <span className="block font-medium">GitHub</span>
+                          <span className="text-sm text-primary-30">
+                            @mskchaithanyaraj
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.linkedin.com/in/mskchaithanyaraj/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-primary-0 hover:text-primary-20 transition-all duration-normal group"
+                      >
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-surface-30 mr-3 group-hover:border-primary-0 transition-all duration-normal">
+                          <FaLinkedin className="w-5 h-5 text-primary-0" />
+                        </div>
+                        <div>
+                          <span className="block font-medium">LinkedIn</span>
+                          <span className="text-sm text-primary-30">
+                            @mskchaithanyaraj
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://leetcode.com/u/mskchaithanyaraj/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-primary-0 hover:text-primary-20 transition-all duration-normal group"
+                      >
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-surface-30 mr-3 group-hover:border-primary-0 transition-all duration-normal">
+                          <FaCode className="w-5 h-5 text-primary-0" />
+                        </div>
+                        <div>
+                          <span className="block font-medium">LeetCode</span>
+                          <span className="text-sm text-primary-30">
+                            @mskchaithanyaraj
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://x.com/mskchaithanya"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-primary-0 hover:text-primary-20 transition-all duration-normal group"
+                      >
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-surface-30 mr-3 group-hover:border-primary-0 transition-all duration-normal">
+                          <FaTwitter className="w-5 h-5 text-primary-0" />
+                        </div>
+                        <div>
+                          <span className="block font-medium">Twitter</span>
+                          <span className="text-sm text-primary-30">
+                            @mskchaithanya
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
                 </motion.div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

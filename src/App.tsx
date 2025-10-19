@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
-import SkillSet from "./components/SkillSet";
 import Certifications from "./components/Certifications";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
@@ -11,7 +10,7 @@ import Footer from "./components/Footer";
 import DetailedProjects from "./components/DetailedProjects";
 import HobbyProjects from "./components/HobbyProjects";
 import { Toaster } from "react-hot-toast";
-import Loader from "./components/Loader"; // Import the Loader component
+import Loader from "./components/Loader";
 import { useState, useEffect } from "react";
 import Experience from "./components/Experience";
 
@@ -20,11 +19,10 @@ const HomePage = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.5 }}
-    className="min-h-screen bg-background text-foreground"
+    className="min-h-screen bg-surface-0 text-primary-0"
   >
     <Navbar />
     <About />
-    <SkillSet />
     <Experience />
     <Projects />
     <Certifications />
@@ -53,7 +51,7 @@ const App = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 flex items-center justify-center bg-background z-50"
+            className="fixed inset-0 flex items-center justify-center bg-surface-0 z-50"
           >
             <Loader />
           </motion.div>

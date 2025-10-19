@@ -50,18 +50,18 @@ const HobbyProjects = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-50 dark:bg-gray-900"
+      className="min-h-screen bg-surface-0"
     >
       <Navbar />
 
       {/* Single Image Preview Modal */}
       {previewImg && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-surface-0/90 p-4"
           onClick={() => setPreviewImg(null)}
         >
           <button
-            className="absolute top-6 right-6 text-white bg-black/70 hover:bg-black/90 rounded-full p-3 transition-all duration-200 z-10"
+            className="absolute top-6 right-6 text-primary-0 bg-surface-0 hover:bg-surface-10 rounded-full p-3 transition-all duration-normal z-10"
             onClick={() => setPreviewImg(null)}
             aria-label="Close preview"
           >
@@ -93,7 +93,7 @@ const HobbyProjects = () => {
         {/* Back Button */}
         <Link
           to="/"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 mb-12 transition-colors font-medium"
+          className="inline-flex items-center text-primary-0 hover:text-primary-20 mb-12 transition-all duration-normal font-medium"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -118,10 +118,10 @@ const HobbyProjects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary-0 mb-4">
             Project Timeline
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-primary-30 max-w-2xl mx-auto">
             A chronological journey through my hobby projects and learning
             experiences
           </p>
@@ -130,7 +130,7 @@ const HobbyProjects = () => {
         {/* Timeline Container */}
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 to-blue-600"></div>
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-surface-30"></div>
 
           <motion.div
             variants={containerVariants}
@@ -147,7 +147,7 @@ const HobbyProjects = () => {
                   className="relative"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 rounded-full bg-blue-500 border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 rounded-full bg-primary-0 border-4 border-surface-0 z-10"></div>
 
                   {/* Desktop Layout */}
                   <div className="hidden md:grid md:grid-cols-2 md:gap-8 md:items-start">
@@ -155,7 +155,7 @@ const HobbyProjects = () => {
                       <>
                         {/* Left side - Date */}
                         <div className="flex justify-end pr-8 pt-4">
-                          <div className="flex items-center bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md">
+                          <div className="flex items-center bg-primary-0 text-surface-0 px-4 py-2 rounded-full text-sm font-medium">
                             <Calendar className="w-4 h-4 mr-2" />
                             {project.date.month} {project.date.year}
                           </div>
@@ -179,7 +179,7 @@ const HobbyProjects = () => {
                         </div>
                         {/* Right side - Date */}
                         <div className="flex justify-start pl-8 pt-4">
-                          <div className="flex items-center bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md">
+                          <div className="flex items-center bg-primary-0 text-surface-0 px-4 py-2 rounded-full text-sm font-medium">
                             <Calendar className="w-4 h-4 mr-2" />
                             {project.date.month} {project.date.year}
                           </div>
@@ -192,7 +192,7 @@ const HobbyProjects = () => {
                   <div className="md:hidden pl-20">
                     {/* Date badge */}
                     <div className="mb-4">
-                      <div className="flex items-center bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md w-fit">
+                      <div className="flex items-center bg-primary-0 text-surface-0 px-4 py-2 rounded-full text-sm font-medium w-fit">
                         <Calendar className="w-4 h-4 mr-2" />
                         {project.date.month} {project.date.year}
                       </div>
@@ -216,7 +216,7 @@ const HobbyProjects = () => {
             transition={{ delay: 0.8, duration: 0.5 }}
           >
             {/* End dot */}
-            <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+            <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary-0 border-4 border-surface-0 z-10"></div>
           </motion.div>
         </div>
 
@@ -227,7 +227,7 @@ const HobbyProjects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
         >
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-200/50 dark:border-blue-700/50 shadow-lg">
+          <div className="rounded-2xl p-8 border border-surface-30">
             <div className="text-center">
               {/* Header with icon */}
               <motion.div
@@ -236,14 +236,14 @@ const HobbyProjects = () => {
                 animate={{ scale: 1 }}
                 transition={{ delay: 1.2, duration: 0.4, type: "spring" }}
               >
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-3">
-                  <Sparkles className="w-6 h-6 text-white" />
+                <div className="bg-primary-0 rounded-full p-3">
+                  <Sparkles className="w-6 h-6 text-surface-0" />
                 </div>
               </motion.div>
 
               {/* Main message */}
               <motion.h2
-                className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                className="text-xl md:text-2xl font-bold text-primary-0 mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4, duration: 0.5 }}
@@ -253,7 +253,7 @@ const HobbyProjects = () => {
 
               {/* Subtitle */}
               <motion.div
-                className="text-gray-600 dark:text-gray-300 mb-6"
+                className="text-primary-30 mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.6, duration: 0.5 }}
@@ -267,7 +267,7 @@ const HobbyProjects = () => {
                     href="https://github.com/mskchaithanyaraj"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors underline decoration-2 underline-offset-2"
+                    className="inline-flex items-center text-primary-0 hover:text-primary-20 font-semibold transition-all duration-normal underline decoration-2 underline-offset-2"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -286,7 +286,7 @@ const HobbyProjects = () => {
               >
                 <Link
                   to="/"
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                  className="inline-flex items-center px-6 py-3 bg-primary-0 hover:bg-primary-20 text-surface-0 rounded-full font-semibold transition-all duration-normal"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -331,7 +331,7 @@ type ProjectCardProps = {
 const ProjectCard: FC<ProjectCardProps> = ({ project, setPreviewImg }) => {
   return (
     <motion.div whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700">
+      <div className="bg-surface-0 rounded-xl border border-surface-30 hover:border-primary-40 transition-all duration-normal overflow-hidden">
         {/* Project image */}
         <div
           className="relative overflow-hidden cursor-pointer group"
@@ -342,32 +342,32 @@ const ProjectCard: FC<ProjectCardProps> = ({ project, setPreviewImg }) => {
             alt={project.name}
             className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-            <Maximize2 className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-surface-0/0 group-hover:bg-surface-0/60 transition-all duration-normal flex items-center justify-center">
+            <Maximize2 className="w-8 h-8 text-primary-0 opacity-0 group-hover:opacity-100 transition-opacity duration-normal" />
           </div>
         </div>
 
         <div className="p-6">
           {/* Project title */}
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+          <h3 className="text-xl font-bold text-primary-0 mb-3">
             {project.name}
           </h3>
 
           {/* Project description */}
-          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          <p className="text-primary-30 mb-4 leading-relaxed">
             {project.description}
           </p>
 
           {/* Tech stack */}
           <div className="mb-6">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+            <h4 className="font-semibold text-primary-0 mb-2">
               Technologies Used
             </h4>
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech: string, i: number) => (
                 <span
                   key={i}
-                  className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700"
+                  className="px-3 py-1 text-primary-0 rounded-full text-sm font-medium border border-surface-30"
                 >
                   {tech}
                 </span>
@@ -382,7 +382,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project, setPreviewImg }) => {
                 href={project.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-4 py-2 bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 text-white rounded-lg transition-colors duration-200 font-medium"
+                className="flex items-center justify-center px-4 py-2 bg-primary-0 hover:bg-primary-20 text-surface-0 rounded-lg transition-all duration-normal font-medium"
               >
                 <Github className="w-4 h-4 mr-2" />
                 View Code
@@ -393,7 +393,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project, setPreviewImg }) => {
                 href={project.demoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-4 py-2 border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900 rounded-lg transition-all duration-200 font-medium"
+                className="flex items-center justify-center px-4 py-2 border border-surface-30 text-primary-0 hover:border-primary-0 rounded-lg transition-all duration-normal font-medium"
               >
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Live Demo
