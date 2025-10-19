@@ -49,6 +49,12 @@ export const skills: Skill[] = [
     level: "Intermediate",
   },
   {
+    id: 11,
+    name: "Java",
+    logo: "assets/logos/java.png",
+    level: "Intermediate",
+  },
+  {
     id: 8,
     name: "C++",
     logo: "assets/logos/c++.png",
@@ -58,13 +64,13 @@ export const skills: Skill[] = [
     id: 9,
     name: "Next.js",
     logo: "assets/logos/nextjs.png",
-    level: "Beginner",
+    level: "Intermediate",
   },
   {
     id: 10,
     name: "TypeScript",
     logo: "assets/logos/typescript.png",
-    level: "Beginner",
+    level: "Intermediate",
   },
   // Add more skills
 ];

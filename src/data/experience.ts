@@ -19,7 +19,7 @@ export const experiences: Experience[] = [
     logo: "assets/logos/tasklabs-logo.png",
     website: "https://www.tasklabs.app/",
     location: "Remote",
-    period: "April 2025 - Present (5 months)",
+    period: "April 2025 - October 2025 (5 months)",
     description:
       "Working as a Software Development Engineer Intern at TaskLabs, developing Chrome Extensions and improving web applications with a focus on user experience and performance optimization.",
     responsibilities: [
