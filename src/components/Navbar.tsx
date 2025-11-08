@@ -332,150 +332,250 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Redesigned */}
       <motion.div
-        className="fixed inset-0 z-40 md:hidden flex flex-col min-h-screen bg-surface-0"
-        initial={{ opacity: 0, y: "-100%" }}
-        animate={{
-          opacity: isOpen ? 1 : 0,
-          y: isOpen ? 0 : "-100%",
-        }}
-        transition={{
-          duration: 0.4,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+        className="fixed inset-0 z-40 md:hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
       >
-        <div className="flex-1 flex flex-col items-center justify-center px-2 pt-1 pb-3 space-y-8">
-          {isHomePage ? (
-            <>
-              {navItems.map((item, index) => (
+        {/* Blurred Background - 20% */}
+        <motion.div
+          className="absolute inset-0 bg-surface-0/60 backdrop-blur-md"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isOpen ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={() => setIsOpen(false)}
+        />
+
+        {/* Slide-in Container - 80% */}
+        <motion.div
+          className="absolute top-0 right-0 h-full w-[80%] bg-surface-0 shadow-2xl border-l border-surface-20"
+          initial={{ x: "100%" }}
+          animate={{ x: isOpen ? 0 : "100%" }}
+          transition={{
+            duration: 0.4,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between p-6 border-b border-surface-20">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full border border-surface-30 overflow-hidden">
+                <img
+                  src="/assets/profile.jpg"
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="text-lg font-semibold text-primary-0">Menu</span>
+            </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-2 rounded-full hover:bg-surface-10 transition-colors duration-200"
+            >
+              <svg
+                className="w-5 h-5 text-primary-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation Content */}
+          <div className="flex flex-col h-[calc(100%-80px)] overflow-y-auto">
+            {isHomePage ? (
+              <>
+                {/* Main Navigation */}
+                <div className="px-6 py-8 space-y-1">
+                  <h3 className="text-xs font-medium text-primary-40 uppercase tracking-wider mb-4">
+                    Navigation
+                  </h3>
+                  {navItems.map((item, index) => (
+                    <motion.a
+                      key={item}
+                      href={`#${item.toLowerCase()}`}
+                      className="flex items-center px-4 py-3 text-base font-medium text-primary-0 rounded-lg hover:bg-surface-10 transition-all duration-200 group"
+                      onClick={() => handleNavItemClick(item)}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{
+                        opacity: isOpen ? 1 : 0,
+                        x: isOpen ? 0 : 20,
+                      }}
+                      transition={{
+                        delay: index * 0.1,
+                        duration: 0.3,
+                      }}
+                    >
+                      <span className="flex-1">{item}</span>
+                      <svg
+                        className="w-4 h-4 text-primary-30 group-hover:text-primary-0 group-hover:translate-x-1 transition-all duration-200"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </motion.a>
+                  ))}
+                </div>
+
+                {/* Work Section */}
+                <div className="px-6 py-4 border-t border-surface-20">
+                  <h3 className="text-xs font-medium text-primary-40 uppercase tracking-wider mb-4">
+                    Work
+                  </h3>
+                  <div className="space-y-2">
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{
+                        opacity: isOpen ? 1 : 0,
+                        x: isOpen ? 0 : 20,
+                      }}
+                      transition={{
+                        delay: (navItems.length + 1) * 0.1,
+                        duration: 0.3,
+                      }}
+                    >
+                      <Link
+                        to="/detailed-projects"
+                        className="flex items-center px-4 py-3 text-sm font-medium text-primary-0 rounded-lg border border-surface-30 hover:border-primary-0 hover:bg-surface-10 transition-all duration-200 group"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <span className="flex-1">More Work</span>
+                        <svg
+                          className="w-4 h-4 text-primary-30 group-hover:text-primary-0 group-hover:translate-x-1 transition-all duration-200"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </Link>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{
+                        opacity: isOpen ? 1 : 0,
+                        x: isOpen ? 0 : 20,
+                      }}
+                      transition={{
+                        delay: (navItems.length + 2) * 0.1,
+                        duration: 0.3,
+                      }}
+                    >
+                      <Link
+                        to="/hobby-projects"
+                        className="flex items-center px-4 py-3 text-sm font-medium text-info-0 rounded-lg border border-info-0 hover:border-info-10 hover:bg-info-0/5 transition-all duration-200 group"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <span className="flex-1">Hobby Projects</span>
+                        <svg
+                          className="w-4 h-4 text-info-0 group-hover:translate-x-1 transition-all duration-200"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </Link>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{
+                        opacity: isOpen ? 1 : 0,
+                        x: isOpen ? 0 : 20,
+                      }}
+                      transition={{
+                        delay: (navItems.length + 3) * 0.1,
+                        duration: 0.3,
+                      }}
+                    >
+                      <Link
+                        to="/materials"
+                        className="flex items-center px-4 py-3 text-sm font-medium text-warning-0 rounded-lg border border-warning-0 hover:border-warning-10 hover:bg-warning-0/5 transition-all duration-200 group"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <span className="flex-1">Study Materials</span>
+                        <svg
+                          className="w-4 h-4 text-warning-0 group-hover:translate-x-1 transition-all duration-200"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </Link>
+                    </motion.div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="px-6 py-8">
                 <motion.div
-                  key={item}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, x: 20 }}
                   animate={{
                     opacity: isOpen ? 1 : 0,
-                    y: isOpen ? 0 : 20,
+                    x: isOpen ? 0 : 20,
                   }}
-                  transition={{
-                    delay: 0.1 + index * 0.05,
-                    duration: 0.3,
-                  }}
+                  transition={{ delay: 0.1, duration: 0.3 }}
                 >
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="block px-3 py-2 text-2xl font-medium text-center relative text-primary-0"
-                    onClick={() => handleNavItemClick(item)}
+                  <Link
+                    to="/"
+                    className="flex items-center px-4 py-3 text-base font-medium text-primary-0 rounded-lg hover:bg-surface-10 transition-all duration-200 group"
+                    onClick={() => setIsOpen(false)}
                   >
-                    <span className="relative">
-                      {item}
-                      <motion.div
-                        className="absolute -bottom-1 left-0 w-full h-[2px] bg-primary-0"
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: isOpen ? 1 : 0 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.2 + index * 0.05,
-                        }}
+                    <svg
+                      className="w-5 h-5 text-primary-30 mr-3 group-hover:text-primary-0 group-hover:-translate-x-1 transition-all duration-200"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
                       />
-                    </span>
-                  </a>
+                    </svg>
+                    <span className="flex-1">Back to Home</span>
+                  </Link>
                 </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: isOpen ? 1 : 0,
-                  y: isOpen ? 0 : 20,
-                }}
-                transition={{
-                  delay: 0.1 + navItems.length * 0.05,
-                  duration: 0.3,
-                }}
-              >
-                <Link
-                  to="/detailed-projects"
-                  className="inline-block px-6 py-3 mt-6 text-xl font-medium border border-surface-30 rounded-lg hover:border-primary-0 transition-all duration-normal text-primary-0"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <span className="flex items-center justify-center">
-                    More Work
-                    <span className="ml-2">→</span>
-                  </span>
-                </Link>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: isOpen ? 1 : 0,
-                  y: isOpen ? 0 : 20,
-                }}
-                transition={{
-                  delay: 0.15 + navItems.length * 0.05,
-                  duration: 0.3,
-                }}
-              >
-                <Link
-                  to="/hobby-projects"
-                  className="inline-block px-6 py-3 mt-2 text-xl font-medium border border-info-0 text-info-0 rounded-lg hover:border-info-10 transition-all duration-normal"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <span className="flex items-center justify-center">
-                    Hobby Projects
-                    <span className="ml-2">→</span>
-                  </span>
-                </Link>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: isOpen ? 1 : 0,
-                  y: isOpen ? 0 : 20,
-                }}
-                transition={{
-                  delay: 0.2 + navItems.length * 0.05,
-                  duration: 0.3,
-                }}
-              >
-                <Link
-                  to="/materials"
-                  className="inline-block px-6 py-3 mt-2 text-xl font-medium border border-warning-0 text-warning-0 rounded-lg hover:border-warning-10 transition-all duration-normal"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <span className="flex items-center justify-center">
-                    Study Materials
-                    <span className="ml-2">→</span>
-                  </span>
-                </Link>
-              </motion.div>
-            </>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: isOpen ? 1 : 0,
-                y: isOpen ? 0 : 20,
-              }}
-              transition={{ delay: 0.1, duration: 0.3 }}
-            >
-              <Link
-                to="/"
-                className="block px-3 py-2 text-2xl font-medium text-center relative text-primary-0"
-                onClick={() => setIsOpen(false)}
-              >
-                <span className="relative">
-                  Back to Home
-                  <motion.div
-                    className="absolute -bottom-1 left-0 w-full h-[2px] bg-primary-0"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: isOpen ? 1 : 0 }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
-                  />
-                </span>
-              </Link>
-            </motion.div>
-          )}
-        </div>
+              </div>
+            )}
+          </div>
+        </motion.div>
       </motion.div>
     </nav>
   );

@@ -26,11 +26,6 @@ const Materials = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <div className="min-h-screen py-10 bg-surface-0">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -140,7 +135,9 @@ const MaterialCard = ({ material }: { material: Material }) => {
         {/* Icon and Category */}
         <div className="flex items-center justify-between mb-4">
           <div className="p-2 rounded-lg bg-surface-10">
-            <material.icon className="h-6 w-6 text-primary-0" />
+            {material.icon && (
+              <material.icon className="h-6 w-6 text-primary-0" />
+            )}
           </div>
           <span className="px-3 py-1 text-xs border border-surface-30 text-primary-30 rounded-md">
             {material.category}
