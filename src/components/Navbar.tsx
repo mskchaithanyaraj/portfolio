@@ -108,15 +108,15 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:block">
-            <div className="flex items-center space-x-4">
+          <div className="hidden md:block">
+            <div className="flex items-center space-x-2 lg:space-x-4">
               {isHomePage ? (
                 <>
                   {navItems.map((item) => (
                     <a
                       key={item}
                       href={`#${item.toLowerCase()}`}
-                      className="text-primary-30 px-3 py-1 text-sm font-medium relative group transition-colors duration-normal hover:text-primary-0"
+                      className="text-primary-30 px-2 lg:px-3 py-1 text-xs lg:text-sm font-medium relative group transition-colors duration-normal hover:text-primary-0"
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleNavItemClick(item)}
@@ -143,8 +143,8 @@ const Navbar = () => {
                     </a>
                   ))}
 
-                  {/* Work Button with Simpler Split Animation */}
-                  <div className="flex items-center ml-4 border-l border-surface-20 pl-4">
+                  {/* Work Button with Responsive Split Animation */}
+                  <div className="flex items-center ml-2 lg:ml-4 border-l border-surface-20 pl-2 lg:pl-4">
                     <div
                       className="relative flex items-center"
                       onMouseEnter={() => setIsWorkHovered(true)}
@@ -152,7 +152,7 @@ const Navbar = () => {
                     >
                       {/* Single Work Button */}
                       <motion.div
-                        className="px-3 py-1.5 text-xs font-medium border border-surface-30 rounded-md bg-transparent cursor-pointer transition-all duration-normal hover:border-primary-0"
+                        className="px-2 lg:px-3 py-1.5 text-xs font-medium border border-surface-30 rounded-md bg-transparent cursor-pointer transition-all duration-normal hover:border-primary-0"
                         animate={{
                           opacity: isWorkHovered ? 0 : 1,
                           x: isWorkHovered ? -20 : 0,
@@ -168,12 +168,13 @@ const Navbar = () => {
                         </span>
                       </motion.div>
 
-                      {/* Split Buttons */}
+                      {/* Split Buttons - Stack vertically on md, horizontal on lg */}
                       <motion.div
-                        className="absolute left-0 flex items-center space-x-2"
+                        className="absolute left-0 top-0 flex flex-col lg:flex-row items-start lg:items-center space-y-1 lg:space-y-0 lg:space-x-2 bg-surface-0 lg:bg-transparent p-2 lg:p-0 rounded-lg lg:rounded-none border lg:border-0 border-surface-30 shadow-lg lg:shadow-none min-w-[140px] lg:min-w-0"
                         animate={{
                           opacity: isWorkHovered ? 1 : 0,
                           x: isWorkHovered ? 0 : 20,
+                          y: isWorkHovered ? 0 : -10,
                         }}
                         transition={{
                           duration: 0.2,
@@ -185,11 +186,11 @@ const Navbar = () => {
                       >
                         <Link
                           to="/detailed-projects"
-                          className="px-3 py-1.5 text-xs font-medium border border-surface-30 rounded-md hover:border-primary-0 transition-all duration-normal whitespace-nowrap"
+                          className="px-2 lg:px-3 py-1.5 text-xs font-medium border border-surface-30 rounded-md hover:border-primary-0 transition-all duration-normal whitespace-nowrap w-full lg:w-auto text-center"
                           onMouseEnter={() => setHoveredItem("more-work")}
                           onMouseLeave={() => setHoveredItem(null)}
                         >
-                          <span className="flex items-center text-primary-0">
+                          <span className="flex items-center justify-center text-primary-0">
                             More Work
                             <motion.span
                               className="ml-1 inline-block text-xs"
@@ -205,16 +206,36 @@ const Navbar = () => {
 
                         <Link
                           to="/hobby-projects"
-                          className="px-3 py-1.5 text-xs font-medium border border-info-0 text-info-0 rounded-md hover:border-info-10 transition-all duration-normal whitespace-nowrap"
+                          className="px-2 lg:px-3 py-1.5 text-xs font-medium border border-info-0 text-info-0 rounded-md hover:border-info-10 transition-all duration-normal whitespace-nowrap w-full lg:w-auto text-center"
                           onMouseEnter={() => setHoveredItem("hobby-projects")}
                           onMouseLeave={() => setHoveredItem(null)}
                         >
-                          <span className="flex items-center">
+                          <span className="flex items-center justify-center">
                             Hobby
                             <motion.span
                               className="ml-1 inline-block text-xs"
                               animate={{
                                 x: hoveredItem === "hobby-projects" ? 2 : 0,
+                              }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              →
+                            </motion.span>
+                          </span>
+                        </Link>
+
+                        <Link
+                          to="/materials"
+                          className="px-2 lg:px-3 py-1.5 text-xs font-medium border border-warning-0 text-warning-0 rounded-md hover:border-warning-10 transition-all duration-normal whitespace-nowrap w-full lg:w-auto text-center"
+                          onMouseEnter={() => setHoveredItem("materials")}
+                          onMouseLeave={() => setHoveredItem(null)}
+                        >
+                          <span className="flex items-center justify-center">
+                            Materials
+                            <motion.span
+                              className="ml-1 inline-block text-xs"
+                              animate={{
+                                x: hoveredItem === "materials" ? 2 : 0,
                               }}
                               transition={{ duration: 0.2 }}
                             >
@@ -269,7 +290,7 @@ const Navbar = () => {
               )}
             </Button>
 
-            <div className="lg:hidden">
+            <div className="md:hidden">
               <Button
                 variant="ghost"
                 size="sm"
@@ -313,7 +334,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <motion.div
-        className="fixed inset-0 z-40 lg:hidden flex flex-col min-h-screen bg-surface-0"
+        className="fixed inset-0 z-40 md:hidden flex flex-col min-h-screen bg-surface-0"
         initial={{ opacity: 0, y: "-100%" }}
         animate={{
           opacity: isOpen ? 1 : 0,
@@ -401,6 +422,28 @@ const Navbar = () => {
                 >
                   <span className="flex items-center justify-center">
                     Hobby Projects
+                    <span className="ml-2">→</span>
+                  </span>
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{
+                  opacity: isOpen ? 1 : 0,
+                  y: isOpen ? 0 : 20,
+                }}
+                transition={{
+                  delay: 0.2 + navItems.length * 0.05,
+                  duration: 0.3,
+                }}
+              >
+                <Link
+                  to="/materials"
+                  className="inline-block px-6 py-3 mt-2 text-xl font-medium border border-warning-0 text-warning-0 rounded-lg hover:border-warning-10 transition-all duration-normal"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span className="flex items-center justify-center">
+                    Study Materials
                     <span className="ml-2">→</span>
                   </span>
                 </Link>
