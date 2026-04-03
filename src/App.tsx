@@ -12,6 +12,7 @@ import HobbyProjects from "./components/HobbyProjects";
 import Materials from "./components/Materials";
 import { Toaster } from "react-hot-toast";
 import Loader from "./components/Loader";
+import PromotionModal from "./components/PromotionModal";
 import { useState, useEffect } from "react";
 import Experience from "./components/Experience";
 
@@ -34,11 +35,18 @@ const HomePage = () => (
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [showPromotionModal, setShowPromotionModal] = useState(false);
 
   // Simulate loading delay (you can replace this with actual data fetching)
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
+      // Show promotion modal after a slight delay once homepage is loaded
+      const modalDelay = setTimeout(() => {
+        setShowPromotionModal(true);
+      }, 1500); // Shows 1.5 seconds after page loads
+
+      return () => clearTimeout(modalDelay);
     }, 2000); // 2 seconds delay - adjust as needed
 
     return () => clearTimeout(timer);
@@ -57,12 +65,18 @@ const App = () => {
             <Loader />
           </motion.div>
         ) : (
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/detailed-projects" element={<DetailedProjects />} />
-            <Route path="/hobby-projects" element={<HobbyProjects />} />
-            <Route path="/materials" element={<Materials />} />
-          </Routes>
+          <>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/detailed-projects" element={<DetailedProjects />} />
+              <Route path="/hobby-projects" element={<HobbyProjects />} />
+              <Route path="/materials" element={<Materials />} />
+            </Routes>
+            <PromotionModal
+              isOpen={showPromotionModal}
+              onClose={() => setShowPromotionModal(false)}
+            />
+          </>
         )}
         <Toaster position="top-center" reverseOrder={false} />
       </ThemeProvider>
