@@ -69,7 +69,7 @@ export const PromotionModal = ({ isOpen, onClose }: PromotionModalProps) => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="fixed inset-0 flex items-center justify-center z-50 p-4"
+                className="fixed inset-0 flex items-center justify-center z-50 p-3 sm:p-4"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Detailed Project Modal */}
@@ -78,10 +78,10 @@ export const PromotionModal = ({ isOpen, onClose }: PromotionModalProps) => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-surface-0 dark:bg-surface-900 rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-primary-0/10 dark:border-primary-900/10"
+                  className="bg-surface-0 dark:bg-surface-900 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto border border-primary-0/10 dark:border-primary-900/10"
                 >
                   {/* Cover Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-36 sm:h-48 overflow-hidden">
                     <img
                       src="/assets/banners/stride-banner.png"
                       alt="Stride365"
@@ -90,9 +90,9 @@ export const PromotionModal = ({ isOpen, onClose }: PromotionModalProps) => {
                   </div>
 
                   {/* Header with close button */}
-                  <div className="relative px-8 py-6 bg-gradient-to-r from-primary-0/5 to-primary-500/5 dark:from-primary-900/10 dark:to-primary-600/10 border-b border-primary-0/10 dark:border-primary-900/10 flex justify-between items-start">
+                  <div className="relative px-4 py-4 sm:px-8 sm:py-6 bg-gradient-to-r from-primary-0/5 to-primary-500/5 dark:from-primary-900/10 dark:to-primary-600/10 border-b border-primary-0/10 dark:border-primary-900/10 flex justify-between items-start">
                     <div>
-                      <h2 className="text-2xl font-bold text-primary-0 dark:text-primary-300">
+                      <h2 className="text-xl sm:text-2xl font-bold text-primary-0 dark:text-primary-300">
                         Stride365
                       </h2>
                       <p className="text-sm text-primary-500/70 dark:text-primary-400/70 mt-1">
@@ -112,7 +112,7 @@ export const PromotionModal = ({ isOpen, onClose }: PromotionModalProps) => {
                   </div>
 
                   {/* Content */}
-                  <div className="px-8 py-6 space-y-4">
+                  <div className="px-4 py-4 sm:px-8 sm:py-6 space-y-4">
                     {/* Description */}
                     <p className="text-primary-600 dark:text-primary-300 text-sm leading-relaxed">
                       A modern, minimalistic to-do tracker with smart progress
@@ -182,7 +182,7 @@ export const PromotionModal = ({ isOpen, onClose }: PromotionModalProps) => {
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex gap-3 pt-4">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-4">
                       <button
                         onClick={handleVisitApp}
                         className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 group active:scale-95 shadow-md"
@@ -209,14 +209,14 @@ export const PromotionModal = ({ isOpen, onClose }: PromotionModalProps) => {
           {/* Toast Notification at Bottom Right - shows when not in full modal */}
           {!showFullModal && (
             <motion.div
-              initial={{ opacity: 0, x: 400 }}
+              initial={{ opacity: 0, x: 120, y: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 400 }}
+              exit={{ opacity: 0, x: 120, y: 20 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="fixed bottom-6 right-6 z-50"
+              className="fixed bottom-3 left-3 right-3 sm:bottom-6 sm:left-auto sm:right-6 z-50"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="bg-surface-0 dark:bg-surface-900 rounded-xl shadow-2xl border border-primary-0/10 dark:border-primary-900/10 p-5 max-w-xs">
+              <div className="bg-surface-0 dark:bg-surface-900 rounded-xl shadow-2xl border border-primary-0/10 dark:border-primary-900/10 p-4 sm:p-5 w-full sm:max-w-xs">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-primary-0 dark:text-primary-300 mb-1">
@@ -239,7 +239,7 @@ export const PromotionModal = ({ isOpen, onClose }: PromotionModalProps) => {
                 </div>
 
                 {/* Buttons */}
-                <div className="flex gap-2 mt-4">
+                <div className="flex flex-col sm:flex-row gap-2 mt-4">
                   <button
                     onClick={handleYes}
                     className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors duration-200 active:scale-95 shadow-md text-sm"
