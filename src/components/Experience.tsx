@@ -43,7 +43,7 @@ const Experience = () => {
     };
 
     return [...experiences].sort(
-      (a, b) => getStartDateValue(b.period) - getStartDateValue(a.period)
+      (a, b) => getStartDateValue(b.period) - getStartDateValue(a.period),
     );
   }, []);
 
@@ -99,7 +99,9 @@ const Experience = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                <ExperienceCard experience={sortedExperiences[currentPage - 1]} />
+                <ExperienceCard
+                  experience={sortedExperiences[currentPage - 1]}
+                />
               </motion.div>
             </AnimatePresence>
           </div>
@@ -128,7 +130,7 @@ const Experience = () => {
                 >
                   {pageNum}
                 </button>
-              )
+              ),
             )}
             <button
               onClick={() =>
