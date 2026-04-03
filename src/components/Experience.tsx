@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { experiences, type Experience } from "../data/experience";
 import {
@@ -14,7 +14,40 @@ import {
 const Experience = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = experiences.length;
+  const sortedExperiences = useMemo(() => {
+    const monthIndex: Record<string, number> = {
+      jan: 0,
+      feb: 1,
+      mar: 2,
+      apr: 3,
+      may: 4,
+      jun: 5,
+      jul: 6,
+      aug: 7,
+      sep: 8,
+      oct: 9,
+      nov: 10,
+      dec: 11,
+    };
+
+    const getStartDateValue = (period: string) => {
+      const startPart = period.split("-")[0]?.trim() ?? "";
+      const parts = startPart.split(" ");
+      const month = parts[0]?.toLowerCase().slice(0, 3);
+      const year = Number(parts[1]);
+      const monthValue = monthIndex[month] ?? 0;
+
+      return Number.isFinite(year)
+        ? new Date(year, monthValue, 1).getTime()
+        : 0;
+    };
+
+    return [...experiences].sort(
+      (a, b) => getStartDateValue(b.period) - getStartDateValue(a.period)
+    );
+  }, []);
+
+  const totalPages = sortedExperiences.length;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -66,7 +99,7 @@ const Experience = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                <ExperienceCard experience={experiences[currentPage - 1]} />
+                <ExperienceCard experience={sortedExperiences[currentPage - 1]} />
               </motion.div>
             </AnimatePresence>
           </div>

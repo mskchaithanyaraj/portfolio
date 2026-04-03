@@ -19,7 +19,7 @@ export const experiences: Experience[] = [
     logo: "assets/logos/tasklabs-logo.png",
     website: "https://www.tasklabs.app/",
     location: "Remote",
-    period: "April 2025 - October 2025 (5 months)",
+    period: "April 2025 - October 2025 (6 months)",
     description:
       "Working as a Software Development Engineer Intern at TaskLabs, developing Chrome Extensions and improving web applications with a focus on user experience and performance optimization.",
     responsibilities: [
@@ -39,5 +39,27 @@ export const experiences: Experience[] = [
       "Git",
     ],
   },
-  // You can add more experiences as needed
+  {
+    id: 2,
+    role: "SDET Intern",
+    company: "Cognizant Technology Solutions",
+    logo: "assets/logos/cognizant-logo.png",
+    website: "https://www.cognizant.com/",
+    location: "Remote",
+    period: "Mar 2026 - Present",
+    description:
+      "Training as an SDET intern with a focus on automation testing, SQL validation, and full-stack testing workflows.",
+    responsibilities: [
+      "Training in automation testing, SQL validation, and full-stack testing workflows",
+      "Practicing test design, debugging, and database validation through hands-on tasks",
+    ],
+    skills: [
+      "Automation Testing",
+      "SQL Validation",
+      "Full-Stack Testing",
+      "Test Design",
+      "Debugging",
+      "Database Validation",
+    ],
+  },
 ];
