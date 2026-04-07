@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { motion } from "framer-motion";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navbar from "./components/Navbar";
@@ -10,6 +15,8 @@ import Footer from "./components/Footer";
 import DetailedProjects from "./components/DetailedProjects";
 import HobbyProjects from "./components/HobbyProjects";
 import Materials from "./components/Materials";
+import DreamsSection from "./components/DreamsSection";
+import Dreams from "./components/Dreams";
 import { Toaster } from "react-hot-toast";
 import Loader from "./components/Loader";
 import PromotionModal from "./components/PromotionModal";
@@ -29,9 +36,20 @@ const HomePage = () => (
     <Projects />
     <Certifications />
     <Contact />
+    <DreamsSection />
     <Footer />
   </motion.div>
 );
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
+};
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,6 +73,7 @@ const App = () => {
   return (
     <Router>
       <ThemeProvider>
+        <ScrollToTop />
         {isLoading ? (
           <motion.div
             initial={{ opacity: 0 }}
@@ -71,6 +90,7 @@ const App = () => {
               <Route path="/detailed-projects" element={<DetailedProjects />} />
               <Route path="/hobby-projects" element={<HobbyProjects />} />
               <Route path="/materials" element={<Materials />} />
+              <Route path="/dreams" element={<Dreams />} />
             </Routes>
             <PromotionModal
               isOpen={showPromotionModal}

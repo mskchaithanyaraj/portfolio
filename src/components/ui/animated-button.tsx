@@ -3,7 +3,7 @@ import { Link, type LinkProps } from "react-router-dom";
 
 import { cn } from "@/lib/utils";
 
-type ButtonTone = "neutral" | "fire" | "warning" | "info";
+type ButtonTone = "neutral" | "fire" | "warning" | "info" | "dream";
 type ButtonSize = "sm" | "md" | "lg";
 
 type ToneStyles = {
@@ -41,6 +41,14 @@ const toneStyles: Record<ButtonTone, ToneStyles> = {
     border: "rgba(174, 203, 255, 0.55)",
     shadow: "0 18px 40px rgba(37, 99, 235, 0.22)",
     glow: "linear-gradient(135deg, rgba(191, 219, 254, 0.34), rgba(37, 99, 235, 0.06))",
+    text: "#ffffff",
+  },
+  dream: {
+    background:
+      "linear-gradient(135deg, #0b1028 0%, #1f3a8a 55%, #22d3ee 100%)",
+    border: "rgba(157, 245, 255, 0.6)",
+    shadow: "0 18px 40px rgba(34, 211, 238, 0.18)",
+    glow: "linear-gradient(135deg, rgba(177, 247, 255, 0.3), rgba(34, 211, 238, 0.05))",
     text: "#ffffff",
   },
 };
