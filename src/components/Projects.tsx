@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { projects, type Project } from "../data/projects";
-import { Link } from "react-router-dom";
-import { ArrowRight, Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
+import { AnimatedButton } from "./ui/animated-button";
 
 const Projects = () => {
   const containerVariants = {
@@ -41,19 +41,23 @@ const Projects = () => {
         </motion.div>
 
         <motion.div
-          className="mt-12 text-center"
+          className="mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <Link
-            to="/detailed-projects"
-            className="inline-flex items-center px-6 py-3 bg-primary-0 text-surface-0 rounded-md hover:bg-primary-20 transition-all duration-normal font-medium group"
-          >
-            View All Projects
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <AnimatedButton to="/detailed-projects" tone="neutral">
+              View All Projects
+            </AnimatedButton>
+            <AnimatedButton to="/hobby-projects" tone="fire">
+              Hobby Projects
+            </AnimatedButton>
+            <AnimatedButton to="/materials" tone="warning">
+              Study Materials
+            </AnimatedButton>
+          </div>
         </motion.div>
       </div>
     </section>

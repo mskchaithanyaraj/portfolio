@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { skills, type Skill } from "../data/skills";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useState } from "react";
+import { AnimatedButton } from "./ui/animated-button";
 
 const SkillSet = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -169,21 +170,39 @@ const SkillSet = () => {
                     more than that, I have actual projects that you can check
                     out!
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    <a
+                  <div className="flex flex-wrap gap-3">
+                    <AnimatedButton
                       href="#experience"
+                      size="sm"
+                      tone="info"
                       onClick={() => setIsModalOpen(false)}
-                      className="inline-flex items-center px-3 py-1.5 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-colors duration-300 text-xs font-medium"
                     >
                       Work Experience
-                    </a>
-                    <a
-                      href="#projects"
+                    </AnimatedButton>
+                    <AnimatedButton
+                      to="/detailed-projects"
+                      size="sm"
+                      tone="neutral"
                       onClick={() => setIsModalOpen(false)}
-                      className="inline-flex items-center px-3 py-1.5 bg-purple-500/10 hover:bg-purple-500/20 text-purple-500 rounded-lg transition-colors duration-300 text-xs font-medium"
                     >
                       All Projects
-                    </a>
+                    </AnimatedButton>
+                    <AnimatedButton
+                      to="/hobby-projects"
+                      size="sm"
+                      tone="fire"
+                      onClick={() => setIsModalOpen(false)}
+                    >
+                      Hobby Projects
+                    </AnimatedButton>
+                    <AnimatedButton
+                      to="/materials"
+                      size="sm"
+                      tone="warning"
+                      onClick={() => setIsModalOpen(false)}
+                    >
+                      Study Materials
+                    </AnimatedButton>
                   </div>
                 </div>
 
