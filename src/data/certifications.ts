@@ -129,6 +129,13 @@ export const certifications: Certification[] = [
   },
   {
     id: uuidv4(),
+    name: "LangChain Academy Certification",
+    imageUrl: "assets/certifications/langchain.jpg",
+    category: "Course Completions",
+    issuer: "LangChain Academy",
+  },
+  {
+    id: uuidv4(),
     name: "How to become Data Scientist",
     imageUrl: "assets/certifications/podcasts/howtobecomeds.jpg",
     category: "Podcasts",
