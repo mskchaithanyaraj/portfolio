@@ -12,6 +12,7 @@ export interface Certification {
     | "Workshops";
   issuer?: string;
   date?: string;
+  featured?: boolean;
 }
 
 export const certifications: Certification[] = [
@@ -133,6 +134,7 @@ export const certifications: Certification[] = [
     imageUrl: "assets/certifications/langchain.jpg",
     category: "Course Completions",
     issuer: "LangChain Academy",
+    featured: true,
   },
   {
     id: uuidv4(),

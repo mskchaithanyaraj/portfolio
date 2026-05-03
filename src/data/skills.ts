@@ -3,6 +3,7 @@ export interface Skill {
   name: string;
   logo: string;
   level: "Beginner" | "Intermediate" | "Advanced" | "Expert";
+  featured?: boolean;
 }
 
 export const skills: Skill[] = [
@@ -53,36 +54,42 @@ export const skills: Skill[] = [
     name: "LangChain",
     logo: "assets/logos/langchain.png",
     level: "Advanced",
+    featured: true,
   },
   {
     id: 20,
     name: "LangGraph",
     logo: "assets/logos/langgraph.png",
     level: "Intermediate",
+    featured: true,
   },
   {
     id: 21,
     name: "LangSmith",
     logo: "assets/logos/langsmith.png",
     level: "Beginner",
+    featured: true,
   },
   {
     id: 22,
     name: "MCP",
     logo: "assets/logos/mcp.png",
     level: "Beginner",
+    featured: true,
   },
   {
     id: 23,
     name: "RAG Pipelines",
     logo: "assets/logos/rag.png",
     level: "Intermediate",
+    featured: true,
   },
   {
     id: 24,
     name: "Embeddings",
     logo: "assets/logos/embeddings.png",
     level: "Intermediate",
+    featured: true,
   },
   {
     id: 25,
@@ -95,12 +102,14 @@ export const skills: Skill[] = [
     name: "FAISS",
     logo: "assets/logos/faiss.png",
     level: "Intermediate",
+    featured: true,
   },
   {
     id: 27,
     name: "ChromaDB",
     logo: "assets/logos/chromadb.png",
     level: "Intermediate",
+    featured: true,
   },
   {
     id: 28,
@@ -143,6 +152,7 @@ export const skills: Skill[] = [
     name: "TensorFlow",
     logo: "assets/logos/tensorflow.png",
     level: "Beginner",
+    featured: true,
   },
   {
     id: 1,

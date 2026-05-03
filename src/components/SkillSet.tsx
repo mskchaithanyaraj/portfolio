@@ -1,15 +1,38 @@
 import { motion } from "framer-motion";
 import { skills, type Skill } from "../data/skills";
 import { useTheme } from "@/contexts/ThemeContext";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatedButton } from "./ui/animated-button";
 
 const SkillSet = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  const shuffle = <T,>(items: T[]) => {
+    const shuffled = [...items];
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [shuffled[index], shuffled[randomIndex]] = [
+        shuffled[randomIndex],
+        shuffled[index],
+      ];
+    }
+    return shuffled;
+  };
+
+  const orderedSkills = useMemo(() => {
+    const featuredSkills = skills.filter((skill) => skill.featured);
+    const regularSkills = skills.filter((skill) => !skill.featured);
+
+    return [...featuredSkills, ...shuffle(regularSkills)];
+  }, []);
+
   // Create seamless infinite scroll with proper duplication
-  const duplicatedSkills = [...skills, ...skills, ...skills];
+  const duplicatedSkills = [
+    ...orderedSkills,
+    ...orderedSkills,
+    ...orderedSkills,
+  ];
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
       {/* Background decoration */}
@@ -127,7 +150,7 @@ const SkillSet = () => {
               >
                 {/* Skills Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                  {skills.map((skill) => (
+                  {orderedSkills.map((skill) => (
                     <div
                       key={skill.id}
                       className="flex items-center gap-3 p-3 rounded-lg bg-foreground/5 border border-foreground/10"
@@ -144,6 +167,11 @@ const SkillSet = () => {
                         <h4 className="font-medium text-sm text-foreground">
                           {skill.name}
                         </h4>
+                        {skill.featured && (
+                          <span className="inline-flex items-center mt-1 px-2 py-0.5 text-[10px] font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">
+                            Latest
+                          </span>
+                        )}
                         <span className="text-xs text-muted-foreground">
                           {skill.level}
                         </span>
@@ -274,6 +302,14 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
         <h3 className="text-sm md:text-base font-medium text-foreground text-center mb-2 leading-tight">
           {skill.name}
         </h3>
+
+        {skill.featured && (
+          <div className="flex justify-center mb-2">
+            <span className="inline-flex items-center px-2 py-1 text-[10px] font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">
+              Latest
+            </span>
+          </div>
+        )}
 
         {/* Level tag */}
         <div className="flex justify-center">

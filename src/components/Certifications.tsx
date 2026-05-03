@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { certifications, type Certification } from "../data/certifications";
 import { ChevronLeft, ChevronRight, X, Maximize2 } from "lucide-react";
@@ -45,20 +45,43 @@ const Certifications = () => {
   };
 
   // Sort certifications by date in descending order
-  const sortedCertifications = (category: string) => {
-    return certifications
-      .filter((cert) => cert.category === category)
-      .sort(
-        (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime()
-      );
+  const shuffle = <T,>(items: T[]) => {
+    const shuffled = [...items];
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [shuffled[index], shuffled[randomIndex]] = [
+        shuffled[randomIndex],
+        shuffled[index],
+      ];
+    }
+    return shuffled;
   };
 
+  const sortedCertifications = useMemo(() => {
+    const categoryCertifications = certifications.filter(
+      (cert) => cert.category === selectedCategory,
+    );
+    const featuredCertifications = categoryCertifications.filter(
+      (cert) => cert.featured,
+    );
+    const regularCertifications = categoryCertifications.filter(
+      (cert) => !cert.featured,
+    );
+
+    return [
+      ...featuredCertifications,
+      ...shuffle(regularCertifications).sort(
+        (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime(),
+      ),
+    ];
+  }, [selectedCategory]);
+
   const itemsPerPage = useResponsiveItemsPerPage();
-  const filteredCertifications = sortedCertifications(selectedCategory);
+  const filteredCertifications = sortedCertifications;
   const totalPages = Math.ceil(filteredCertifications.length / itemsPerPage);
   const paginatedCertifications = filteredCertifications.slice(
     (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
+    currentPage * itemsPerPage,
   );
 
   const handleCategoryChange = (category: string) => {
@@ -170,6 +193,11 @@ const Certifications = () => {
                         <h4 className="text-lg font-semibold text-primary-0 mb-2 line-clamp-2">
                           {cert.name}
                         </h4>
+                        {cert.featured && (
+                          <span className="inline-flex items-center px-2 py-1 mb-2 text-xs font-semibold rounded-full bg-primary-0/10 text-primary-0 border border-primary-0/20 w-fit">
+                            Latest
+                          </span>
+                        )}
                         {cert.issuer && (
                           <p className="text-sm text-primary-30 mb-1">
                             Issuer: {cert.issuer}
@@ -217,7 +245,7 @@ const Certifications = () => {
                     >
                       {pageNum}
                     </button>
-                  )
+                  ),
                 )}
                 <button
                   onClick={() =>
@@ -263,6 +291,11 @@ const Certifications = () => {
                 <h3 className="font-medium text-lg text-white drop-shadow-sm">
                   {selectedCert.name}
                 </h3>
+                {selectedCert.featured && (
+                  <span className="inline-flex items-center mt-1 px-2 py-1 text-xs font-semibold rounded-full bg-white/15 text-white border border-white/20 w-fit">
+                    Latest
+                  </span>
+                )}
                 {selectedCert.issuer && (
                   <p className="text-sm text-white/80 drop-shadow-sm">
                     Issuer: {selectedCert.issuer}
