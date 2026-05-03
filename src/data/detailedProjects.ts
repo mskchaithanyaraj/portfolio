@@ -17,6 +17,78 @@ export interface DetailedProject {
 
 export const detailedProjects: DetailedProject[] = [
   {
+    id: "12",
+    name: "AI Resume Analyzer (ATS Optimization Tool)",
+    description:
+      "An AI-powered resume analysis tool that evaluates ATS compatibility and suggests real-time improvements.",
+    imageUrl: "assets/project-placeholder.png",
+    date: {
+      month: "May",
+      year: 2026,
+    },
+    challenges: [
+      "Detecting ATS weaknesses across different resume formats",
+      "Generating useful feedback without overwhelming the user",
+      "Parsing resume content reliably for analysis",
+    ],
+    solutions: [
+      "Used PDF parsing to extract structured resume content",
+      "Applied LLM prompts to produce targeted optimization suggestions",
+      "Focused feedback on keywords, formatting, and content quality",
+    ],
+    outcomes: [
+      "Improved resume ATS readiness analysis",
+      "Delivered clear and actionable suggestions in real time",
+      "Strengthened AI-assisted content evaluation skills",
+    ],
+    techStack: [
+      "React",
+      "Tailwind CSS",
+      "PDF Parsing",
+      "LLM APIs",
+      "Git",
+      "GitHub Copilot",
+      "NLP",
+    ],
+    githubLink: "https://github.com/mskchaithanyaraj/ai-resume-analyzer",
+  },
+  {
+    id: "13",
+    name: "Assessment Recommendation Engine (RAG System)",
+    description:
+      "A RAG-based recommendation system that uses semantic retrieval and reranking to improve assessment recommendations.",
+    imageUrl: "assets/project-placeholder.png",
+    date: {
+      month: "May",
+      year: 2026,
+    },
+    challenges: [
+      "Building reliable semantic search over assessment data",
+      "Balancing retrieval quality with LLM reranking accuracy",
+      "Creating a usable interface for experimenting with recommendations",
+    ],
+    solutions: [
+      "Used embeddings and FAISS for fast semantic retrieval",
+      "Applied LLM-based reranking to improve relevance",
+      "Connected FastAPI and Streamlit for a lightweight workflow",
+    ],
+    outcomes: [
+      "Improved recommendation relevance and accuracy",
+      "Created a practical RAG workflow for assessment matching",
+      "Expanded hands-on experience with LLM and retrieval pipelines",
+    ],
+    techStack: [
+      "Python",
+      "FAISS",
+      "FastAPI",
+      "Streamlit",
+      "Groq LLaMA",
+      "Embeddings",
+      "RAG Pipelines",
+    ],
+    githubLink: "https://github.com/mskchaithanyaraj/shl-recommendation-engine",
+  },
+  {
     id: "1",
     name: "COVID-19 Page",
     description:

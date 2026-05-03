@@ -35,9 +35,12 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          {projects
+            .filter((project) => project.featured)
+            .slice(0, 3)
+            .map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
         </motion.div>
 
         <motion.div

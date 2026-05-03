@@ -7,9 +7,34 @@ export interface Project {
   githubLink: string;
   demoLink?: string;
   image: string;
+  featured?: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    id: 4,
+    name: "AI Resume Analyzer (ATS Optimization Tool)",
+    description:
+      "Built an AI tool to analyze resumes against ATS criteria and generate real-time improvement suggestions.",
+    techStack: [
+      "React",
+      "Tailwind CSS",
+      "PDF Parsing",
+      "LLM APIs",
+      "Git",
+      "GitHub Copilot",
+      "NLP",
+    ],
+    keyLearnings: [
+      "Keyword optimization for ATS-friendly resumes",
+      "Structured feedback generation with LLMs",
+      "Resume parsing and content enhancement workflows",
+    ],
+    githubLink: "https://github.com/mskchaithanyaraj/ai-resume-analyzer",
+    image: "assets/project-placeholder.png",
+    featured: true,
+  },
+
   {
     id: 1,
     name: "Chatty: Real-Time Messaging App",
@@ -58,6 +83,30 @@ export const projects: Project[] = [
     githubLink: "https://github.com/mskchaithanyaraj/estatex",
     demoLink: "https://estatexonline.netlify.app",
     image: "assets/estatex.png",
+    featured: true,
+  },
+  {
+    id: 5,
+    name: "Assessment Recommendation Engine (RAG System)",
+    description:
+      "Built a RAG-based recommendation system using embeddings and FAISS for semantic retrieval.",
+    techStack: [
+      "Python",
+      "FAISS",
+      "FastAPI",
+      "Streamlit",
+      "Groq LLaMA",
+      "Embeddings",
+      "RAG Pipelines",
+    ],
+    keyLearnings: [
+      "Semantic retrieval with embeddings and FAISS",
+      "LLM-based reranking for better recommendations",
+      "FastAPI and Streamlit integration for rapid prototyping",
+    ],
+    githubLink: "https://github.com/mskchaithanyaraj/shl-recommendation-engine",
+    image: "assets/project-placeholder.png",
+    featured: true,
   },
   {
     id: 3,
