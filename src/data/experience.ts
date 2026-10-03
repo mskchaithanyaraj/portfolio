@@ -45,13 +45,14 @@ export const experiences: Experience[] = [
     company: "Cognizant Technology Solutions",
     logo: "assets/logos/cognizant-logo.png",
     website: "https://www.cognizant.com/",
-    location: "Remote",
-    period: "Mar 2026 - Present",
+    location: "Coimbatore",
+    period: "Mar 2026 - July 2026",
     description:
       "Training as an SDET intern with a focus on automation testing, SQL validation, and full-stack testing workflows.",
     responsibilities: [
-      "Training in automation testing, SQL validation, and full-stack testing workflows",
-      "Practicing test design, debugging, and database validation through hands-on tasks",
+      " Built UI automation frameworks using Java, Selenium WebDriver, TestNG, and Cucumber (BDD).",
+      "Automated and validated REST APIs using Rest Assured for functional and regression testing.",
+      " Worked with Spring Boot and Angular applications to implement end-to-end test automation.",
     ],
     skills: [
       "Automation Testing",
@@ -60,6 +61,30 @@ export const experiences: Experience[] = [
       "Test Design",
       "Debugging",
       "Database Validation",
+    ],
+  },
+  {
+    id: 3,
+    role: "Program Analyst",
+    company: "Cognizant Technology Solutions",
+    logo: "assets/logos/cognizant-logo.png",
+    website: "https://www.cognizant.com/",
+    location: "Kolkata",
+    period: "Aug 2026 - Present",
+    description:
+      "Working as a Program Analyst with a focus on automation testing and Agentic AI testing.",
+    responsibilities: [
+      " Built UI automation frameworks using Java, Selenium WebDriver, TestNG, and Cucumber (BDD).",
+      "Automated and validated REST APIs using Rest Assured for functional and regression testing.",
+      " Worked with Spring Boot and Angular applications to implement end-to-end test automation.",
+    ],
+    skills: [
+      "Automation Testing",
+      "Full-Stack Testing",
+      "Test Design",
+      "Debugging",
+      "Agentic AI Testing",
+      "Mannual Testing",
     ],
   },
 ];
